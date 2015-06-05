@@ -4,7 +4,7 @@ Simple user agent detection library.
 
 # Build
 
-```
+```sh
 $ make build # output: sua.min.js
 ```
 
@@ -16,7 +16,7 @@ Browser : ./spec/index.html
 
 # Use
 
-```
+```js
 <script src="sua.js" />
 
 <script>
@@ -52,4 +52,4 @@ sua.min.js (size: 3559 byte) optimize uglify2
 
 ## LICENSE
 
-@see : [LICENSE](https://github.com/fkei/sua.js/master/LICENSE)
+@see : [LICENSE](https://github.com/fkei/sua.js/blob/master/LICENSE)
