@@ -2,6 +2,7 @@
     "name": "sua",
     "version": "0.9.1",
     "description": "Simple user agent detection library.",
+    "license" : "MIT",
     "keywords": [
         "browser"
     ],
