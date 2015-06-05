@@ -2,6 +2,12 @@
 
 Simple user agent detection library.
 
+# Install
+
+```
+$ npm install sua
+```
+
 # Build
 
 ```sh

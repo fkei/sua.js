@@ -1,0 +1,33 @@
+{
+  "name": "sua.js",
+  "version": "0.9.1",
+  "main": [
+    "sua.js",
+    "sua.min.js"
+  ],
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/fkei/sua.js",
+  "authors": [
+    "fkei <kei.topaz@gmail.com>"
+  ],
+  "description": "Simple user agent detection library.",
+  "keywords": [
+    "browser",
+    "useragent"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "LICENSE",
+    "Makefile",
+    "README.md",
+    "bower.json",
+    "build.sh",
+    "node_modules",
+    "package.json",
+    "setver",
+    "bower_components",
+    "spec",
+    "tests"
+  ]
+}
