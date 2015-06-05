@@ -1,0 +1,36 @@
+{
+    "name": "sua",
+    "version": "0.9.1",
+    "description": "Simple user agent detection library.",
+    "keywords": [
+        "browser"
+    ],
+    "homepage": "https://github.com/fkei/sua.js",
+    "bugs": {
+        "email": "kei.topaz@gmail.com",
+        "url": "https://github.com/fkei/sua.js/issues"
+    },
+    "author": {
+        "name": "Kei Funagayama",
+        "email": "kei.topaz@gmail.com",
+        "url": "https://github.com/fkei"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:fkei/sua.js.git"
+    },
+    "dependencies": {
+        "uglify-js": "*"
+    },
+    "devDependencies": {
+        "mocha": ">=1.0.1",
+        "chai": ">=1.8.0",
+        "should": ">=0.6.1",
+        "jshint": ">=0.7.0"
+    },
+    "engines": {
+        "node": ">=0.12.0",
+        "npm": ">=2.5.0"
+    },
+    "main": "./sua.js"
+}
