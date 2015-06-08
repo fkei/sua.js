@@ -1,5 +1,16 @@
 (function (global) {
 
+  var nodejs = false;
+  if (!global._ && typeof module !== 'undefined' && module.exports) {
+    _ = require("../node_modules/underscore/underscore.js");
+    chai = require('chai');
+    expect = chai.expect;
+    sua = require("../sua.js");
+    nodejs = true;
+    console.log("mode: node.js");
+  }
+
+
   var useragents = {
     "Android2.1": [
       'Mozilla/5.0 (Linux; U; Android 2.1-update1; ja-jp; SonyEricssonSO-01B Build/2.0.2.B.0.29) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17',
@@ -183,8 +194,10 @@
     });
 
     it('setup', function() {
-      sua.setup()
-      expect(sua.browser.version).to.be.an('string');
+      if (!nodejs) {
+        sua.setup()
+        expect(sua.browser.version).to.be.an('string');
+      }
     });
 
     it('setup parameter', function() {

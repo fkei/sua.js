@@ -230,7 +230,8 @@
          * @memberof ua
          * @return {boolean}
          */
-        this.iphone5 = this.iphone && screen && screen.width === 320 && screen.height === 568;
+        this.iphone5 = !(typeof module !== 'undefined' && module.exports) && this.iphone && screen && screen.width === 320 && screen.height === 568;
+
 
         /**
          * Decision: iphone3
