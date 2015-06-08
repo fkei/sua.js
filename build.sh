@@ -31,7 +31,7 @@ ${__hint} ${__src}
 [ $? -ne 0 ] && echo "jshint running error." && exit 1
 
 #VERSION=`cat ${__script_dir}/package.json | grep version | cut -c 17-21`
-VERSION=`node -e 'console.log(require("./sua").sua.VERSION)'`
+VERSION=`node -e 'console.log(require("./sua").VERSION)'`
 
 echo
 echo "info: uglify start."

@@ -1,7 +1,7 @@
 PROJECTNAME="sua.js"
 DESC="sua.js"
 
-all: clean test build jsdoc
+all: clean test build
 
 setup:
 	npm install . 

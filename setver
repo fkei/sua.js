@@ -6,7 +6,7 @@ var list = [
     './package.json',
 ];
 
-var VERSION = require('./sua').sua.VERSION;
+var VERSION = require('./sua').VERSION;
 
 for (var i = 0; i < list.length; i++) {
     var file = list[i];
