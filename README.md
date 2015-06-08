@@ -1,6 +1,6 @@
 # sua
 
-Simple user agent detection library.
+Simple user agent detection library. (Node.js or Browser supported)
 
 # Install (NPM or Bower)
 
