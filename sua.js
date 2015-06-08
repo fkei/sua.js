@@ -60,6 +60,13 @@
          */
         this.android4 = useragent.match(/(Android)\s+(4)([\d.]+)/),
         /**
+         * Decision: android4.x
+         * @name android
+         * @memberof ua
+         * @return {Array}
+         */
+        this.android5 = useragent.match(/(Android)\s+(5)([\d.]+)/),
+        /**
          * Decision: ipad
          * @name ipad
          * @memberof ua
@@ -368,9 +375,15 @@
                                                 (this.chrome && useragent.match(/Android/)) || (this.chrome && useragent.match(/CriOS\/([\d.]+)/)) || (this.firefox && useragent.match(/Mobile/)) || (this.windowsphone && useragent.match(/IEMobile/))));
     };
 
-    if (!global.sua) {
-        global.sua = {};
+    if (typeof module !== 'undefined' && module.exports) {
+      // node
+        module.exports = ua;
     }
-    global.sua = ua;
+
+    if (!global.sua) {
+      // browser
+      global.sua = {};
+      global.sua = ua;
+    }
 
 })(this);
