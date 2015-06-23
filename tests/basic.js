@@ -184,6 +184,11 @@
       "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)",
       "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)"
     ],
+    "AndroidFirefox": [
+      "Mozilla/5.0 (Android; Mobile; rv:14.0) Gecko/14.0 Firefox/14.0",
+      "Mozilla/5.0 (Android; Mobile; rv:38.0) Gecko/38.0 Firefox/38.0",
+      "Mozilla/5.0 (Android; Tablet; rv:38.0) Gecko/38.0 Firefox/38.0",
+    ]
   };
 
 
@@ -654,6 +659,16 @@
         expect(sua.browser.version).be.ok;
       });
     });
+
+    it('ua.android.firefox', function() {
+      _.each(useragents["AndroidFirefox"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.android).be.ok;
+        expect(sua.browser.firefox).be.ok;
+        expect(sua.firefox).be.ok;
+      });
+    });
+
 
     ///
 

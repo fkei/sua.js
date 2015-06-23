@@ -344,6 +344,9 @@
         if (this.firefox) {
             this.browser.firefox = true;
             this.browser.version = this.firefox[1];
+            if (useragent.match(/Android/)) { // firefox on android
+              this.android = ["Android", "Android", ""];
+            }
         }
         if (this.wii || this.ds) {
             this.os.nintendo = true;
