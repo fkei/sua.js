@@ -13,7 +13,7 @@
      * @name ua
      * @namespace ua
      */
-    var ua = {VERSION: '0.9.3'};
+    var ua = {VERSION: '0.9.4'};
 
     /**
      * UserAgent decision

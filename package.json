@@ -1,6 +1,6 @@
 {
     "name": "sua.js",
-    "version": "0.9.3",
+    "version": "0.9.4",
     "description": "Simple user agent detection library.",
     "license": "MIT",
     "keywords": [
