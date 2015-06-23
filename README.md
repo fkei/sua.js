@@ -1,11 +1,13 @@
 # sua
 
-Simple user agent detection library.
+Simple user agent detection library. (Node.js or Browser supported)
 
-# Install
+# Install (NPM or Bower)
 
 ```
 $ npm install sua.js
+or
+$ bower install sua.js
 ```
 
 # Build
@@ -17,7 +19,9 @@ $ make build # output: sua.min.js
 # test
 
 ```
-Browser : ./spec/index.html
+Browser : $ ./spec/index.html
+
+Terminal : $ ./node_modules/mocha/bin/mocha tests/basic.js
 ```
 
 # Use
