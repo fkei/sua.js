@@ -188,6 +188,13 @@
       "Mozilla/5.0 (Android; Mobile; rv:14.0) Gecko/14.0 Firefox/14.0",
       "Mozilla/5.0 (Android; Mobile; rv:38.0) Gecko/38.0 Firefox/38.0",
       "Mozilla/5.0 (Android; Tablet; rv:38.0) Gecko/38.0 Firefox/38.0",
+    ],
+    "TwitterWebView": [
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11D167 Twitter for iPhone",
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12B466 Twitter for iPhone",
+      "Mozilla/5.0 (iPad; CPU OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H143 Twitter for iPhone",
+      "Mozilla/5.0 (Linux; Android 4.4.4; SOL26 Build/23.0.C.0.350) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 TwitterAndroid",
+      "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.121 Mobile Safari/537.36 TwitterAndroid"
     ]
   };
 
@@ -666,6 +673,13 @@
         expect(sua.android).be.ok;
         expect(sua.browser.firefox).be.ok;
         expect(sua.firefox).be.ok;
+      });
+    });
+
+    it('ua.webview.twitter', function() {
+      _.each(useragents["TwitterWebView"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.webview.twitter).be.ok;
       });
     });
 
