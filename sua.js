@@ -377,6 +377,17 @@
          */
         this.os.phone  = !!(!this.os.tablet && (this.android || this.iphone || this.webos || this.blackberry || this.bb10 ||
                                                 (this.chrome && useragent.match(/Android/)) || (this.chrome && useragent.match(/CriOS\/([\d.]+)/)) || (this.firefox && useragent.match(/Mobile/)) || (this.windowsphone && useragent.match(/IEMobile/))));
+
+        this.webview = {};
+        /**
+         * Decision: TwitterWebView
+         * @name twitterwebview
+         * @memberof ua
+         * @return {boolean}
+         */
+        if (useragent.match(/Twitter/)) {
+            this.webview.twitter = true;
+        }
     };
 
     if (typeof module !== 'undefined' && module.exports) {
