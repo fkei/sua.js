@@ -286,27 +286,29 @@
         if (this.iphone) {
             this.os.ios = this.os.iphone = true;
             this.os.version = this.iphone[2].replace(/_/g, '.');
-
-        }
-
-        var __ios_v_0 = null;
-        if (this.os.version) {
-            __ios_v_0 = this.os.version.substring(0, 1);
-        }
-        for (var i = 3; i < 10; i++) { // IOS 3->9
-            /**
-             * Decision: ios 3-9
-             * @name ios3-9
-             * @memberof ua
-             * @return {boolean}
-             */
-            this['ios' + i] = __ios_v_0 === "" + i;
         }
 
         if (this.ipad) {
             this.os.ios = this.os.ipad = true;
             this.os.version = this.ipad[2].replace(/_/g, '.');
         }
+
+        if (this.os.ios) {
+          var __ios_v_0 = null;
+          if (this.os.version) {
+              __ios_v_0 = this.os.version.substring(0, 1);
+          }
+          for (var i = 3; i < 10; i++) { // IOS 3->9
+              /**
+               * Decision: ios 3-9
+               * @name ios3-9
+               * @memberof ua
+               * @return {boolean}
+               */
+              this['ios' + i] = __ios_v_0 === "" + i;
+          }
+        }
+
         if (this.webos) {
             this.os.webos = true;
             this.os.version = this.webos[2];

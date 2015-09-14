@@ -429,6 +429,14 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 4) {
+            expect(sua['ios4']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
+
       });
     });
     it('ua.iphone (IOS5-ipad)', function() {
@@ -443,6 +451,13 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 5) {
+            expect(sua['ios5']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
       });
     });
     it('ua.iphone (IOS6-ipad)', function() {
@@ -457,6 +472,13 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 6) {
+            expect(sua['ios6']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
       });
     });
     it('ua.iphone5 (hardware)', function() {
