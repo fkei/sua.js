@@ -106,6 +106,17 @@
       'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OSX) AppleWebKit/546.10 (KHTML, like Gecko) Version/6.0 Mobile/7E18WD',
       'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.40 (KHTML, like Gecko) Version/6.0 Mobile/11A4372q Safari/8536.25'
     ],
+    "IOS8": [
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A365 Safari/600.1.4',
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B411 Safari/600.1.4',
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12D508 Safari/600.1.4',
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F70 Safari/600.1.4',
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12H143 Safari/600.1.4',
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12H321 Safari/600.1.4',
+    ],
+    "IOS9": [
+      'Mozilla /5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1',
+    ],
     "IOS4-ipad": [
       'Mozilla/5.0 (iPad; U; CPU OS 4_2 like Mac OS X; zh-cn) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8C134',
       'Mozilla/5.0 (iPad; U; CPU OS 4_3 like Mac OS X; ja-jp) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8F190 Safari/6533.18.5',
@@ -121,6 +132,22 @@
     ],
     "IOS6-ipad": [
       'Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25',
+    ],
+    "IOS7-ipad": [
+      'Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53',
+      'Mozilla/5.0 (iPad; CPU OS 7_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D167 Safari/9537.53',
+      'Mozilla/5.0 (iPad; CPU OS 7_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D257 Safari/9537.53',
+    ],
+    "IOS8-ipad": [
+      'Mozilla/5.0 (iPad; CPU OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A365 Safari/600.1.4',
+      'Mozilla/5.0 (iPad; CPU OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4',
+      'Mozilla/5.0 (iPad; CPU OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12D508 Safari/600.1.4',
+      'Mozilla/5.0 (iPad; CPU OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F69 Safari/600.1.4',
+      'Mozilla/5.0 (iPad; CPU OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12H143 Safari/600.1.4',
+      'Mozilla/5.0 (iPad; CPU OS 8_4_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12H321 Safari/600.1.4',
+    ],
+    "IOS9-ipad": [
+      'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1',
     ],
     "BlackBerry": [
       'BlackBerry9000/4.6.0.224 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/220',
@@ -416,6 +443,50 @@
         }
       });
     });
+    it('ua.iphone (IOS8)', function() {
+      _.each(useragents["IOS8"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.iphone).be.ok;
+        expect(sua.webkit).be.ok;
+
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        expect(sua.os.iphone).be.ok;
+        expect(sua.os.ios).be.ok;
+        expect(sua.os.version).be.ok;
+        expect(sua.os.table).not.be.ok;
+        expect(sua.os.phone).be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 8) {
+            expect(sua['ios8']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
+      });
+    });
+    it('ua.iphone (IOS9)', function() {
+      _.each(useragents["IOS9"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.iphone).be.ok;
+        expect(sua.webkit).be.ok;
+
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        expect(sua.os.iphone).be.ok;
+        expect(sua.os.ios).be.ok;
+        expect(sua.os.version).be.ok;
+        expect(sua.os.table).not.be.ok;
+        expect(sua.os.phone).be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 9) {
+            expect(sua['ios9']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
+      });
+    });
     it('ua.iphone (IOS4-ipad)', function() {
       _.each(useragents["IOS4-ipad"], function (useragent, idx) {
         sua.setup(useragent);
@@ -475,6 +546,69 @@
         for (var i = 3; i < 10; i++) { // IOS 3->9
           if (i == 6) {
             expect(sua['ios6']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
+      });
+    });
+    it('ua.iphone (IOS7-ipad)', function() {
+      _.each(useragents["IOS7-ipad"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.ipad).be.ok;
+
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        expect(sua.os.ipad).be.ok;
+        expect(sua.os.ios).be.ok;
+        expect(sua.os.version).be.ok;
+        expect(sua.os.tablet).be.ok;
+        expect(sua.os.phone).not.be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 7) {
+            expect(sua['ios7']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
+      });
+    });
+    it('ua.iphone (IOS8-ipad)', function() {
+      _.each(useragents["IOS8-ipad"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.ipad).be.ok;
+
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        expect(sua.os.ipad).be.ok;
+        expect(sua.os.ios).be.ok;
+        expect(sua.os.version).be.ok;
+        expect(sua.os.tablet).be.ok;
+        expect(sua.os.phone).not.be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 8) {
+            expect(sua['ios8']).be.ok;
+          } else {
+            expect(sua['ios' + i]).be.not.ok;
+          }
+        }
+      });
+    });
+    it('ua.iphone (IOS9-ipad)', function() {
+      _.each(useragents["IOS9-ipad"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.ipad).be.ok;
+
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        expect(sua.os.ipad).be.ok;
+        expect(sua.os.ios).be.ok;
+        expect(sua.os.version).be.ok;
+        expect(sua.os.tablet).be.ok;
+        expect(sua.os.phone).not.be.ok;
+        for (var i = 3; i < 10; i++) { // IOS 3->9
+          if (i == 9) {
+            expect(sua['ios9']).be.ok;
           } else {
             expect(sua['ios' + i]).be.not.ok;
           }
