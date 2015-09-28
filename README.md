@@ -67,7 +67,7 @@ Terminal : $ make test
 
 # Use
 
-```js
+```
 <script src="sua.js" />
 
 <script>
