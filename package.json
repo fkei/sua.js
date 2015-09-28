@@ -6,6 +6,9 @@
     "keywords": [
         "browser"
     ],
+    "scripts": {
+      "test": "mocha tests/*.js"
+    },
     "homepage": "https://github.com/fkei/sua.js",
     "bugs": {
         "email": "kei.topaz@gmail.com",

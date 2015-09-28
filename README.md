@@ -10,6 +10,47 @@ or
 $ bower install sua.js
 ```
 
+# Feature
+
+Support Browser
+
+- [x] ua.Android 2.1
+- [x] ua.Android 2.2
+- [x] ua.Android 2.3
+- [x] ua.Android 3.x
+- [x] ua.Android 4.x
+- [x] ua.Android 5.0
+- [x] ua.Android 5.1
+- [x] ua.iphone (IOS4)
+- [x] ua.iphone (IOS5)
+- [x] ua.iphone (IOS6)
+- [x] ua.iphone (IOS7)
+- [x] ua.iphone (IOS8)
+- [x] ua.iphone (IOS9)
+- [x] ua.iphone (IOS4-ipad)
+- [x] ua.iphone (IOS5-ipad)
+- [x] ua.iphone (IOS6-ipad)
+- [x] ua.iphone (IOS7-ipad)
+- [x] ua.iphone (IOS8-ipad)
+- [x] ua.iphone (IOS9-ipad)
+- [x] ua.iphone5 (hardware)
+- [x] ua.blackberry
+- [x] ua.webos
+- [x] ua.touchpad
+- [x] ua.kindle
+- [x] ua.silk
+- [x] ua.bb10
+- [x] ua.rimtabletos
+- [x] ua.playbook
+- [x] ua.ds
+- [x] ua.psp
+- [x] ua.psvita
+- [x] ua.windowsphone
+- [x] ua.safari
+- [x] ua.xbox
+- [x] ua.android.firefox
+- [x] ua.webview.twitter
+
 # Build
 
 ```sh
@@ -21,7 +62,7 @@ $ make build # output: sua.min.js
 ```
 Browser : $ ./spec/index.html
 
-Terminal : $ ./node_modules/mocha/bin/mocha tests/basic.js
+Terminal : $ make test
 ```
 
 # Use

@@ -3,6 +3,8 @@ DESC="sua.js"
 
 all: clean test build
 
+test:
+	npm run test
 setup:
 	npm install . 
 
