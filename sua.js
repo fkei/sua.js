@@ -377,8 +377,14 @@
          * @memberof ua
          * @return {boolean}
          */
-        this.os.phone  = !!(!this.os.tablet && (this.android || this.iphone || this.webos || this.blackberry || this.bb10 ||
+        this.os.phone = !!(!this.os.tablet && (this.android || this.iphone || this.webos || this.blackberry || this.bb10 ||
                                                 (this.chrome && useragent.match(/Android/)) || (this.chrome && useragent.match(/CriOS\/([\d.]+)/)) || (this.firefox && useragent.match(/Mobile/)) || (this.windowsphone && useragent.match(/IEMobile/))));
+
+        /**
+         * Decision mobile (tablet or phone)
+         * @type {boolean}
+         */
+        this.mobile = !!(this.os.tablet|| this.os.phone);
 
         this.webview = {};
         /**
