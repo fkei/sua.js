@@ -1,13 +1,13 @@
 {
     "name": "sua.js",
-    "version": "0.9.6",
+    "version": "0.9.7",
     "description": "Simple user agent detection library.",
     "license": "MIT",
     "keywords": [
         "browser"
     ],
     "scripts": {
-      "test": "mocha tests/*.js"
+        "test": "mocha tests/*.js"
     },
     "homepage": "https://github.com/fkei/sua.js",
     "bugs": {
