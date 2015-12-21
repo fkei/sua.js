@@ -211,6 +211,26 @@
       "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)",
       "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)"
     ],
+    "ie11": [
+      "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; Tablet PC 2.0; rv:11.0) like Gecko",
+      "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko",
+      "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko",
+    ],
+    "ie10": [
+      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.3; WOW64; Trident/7.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; Tablet PC 2.0)",
+      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)",
+      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)",
+      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)",
+      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)",
+      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)",
+      "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0)",
+    ],
+    "ie9": [
+      "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.3; WOW64; Trident/7.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; Tablet PC 2.0)",
+      "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)",
+      "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; Sleipnir/2.9.8)",
+      "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)",
+    ],
     "AndroidFirefox": [
       "Mozilla/5.0 (Android; Mobile; rv:14.0) Gecko/14.0 Firefox/14.0",
       "Mozilla/5.0 (Android; Mobile; rv:38.0) Gecko/38.0 Firefox/38.0",
@@ -839,6 +859,27 @@
       });
     });
 
+    it('ua.ie11', function() {
+      _.each(useragents["ie11"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.ie).be.ok;
+        expect(sua.browser.version.substring(0,2)).to.eq("11").be.ok;
+      });
+    });
+    it('ua.ie10', function() {
+      _.each(useragents["ie10"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.ie).be.ok;
+        expect(sua.browser.version).to.eq("10.0").be.ok;
+      });
+    });
+    it('ua.ie9', function() {
+      _.each(useragents["ie9"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.ie).be.ok;
+        expect(sua.browser.version).to.eq("9.0").be.ok;
+      });
+    });
 
     ///
 

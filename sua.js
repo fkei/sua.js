@@ -218,10 +218,16 @@
          * @memberof ua
          * @return {Array}
          */
-        this.xbox = useragent.match(/Xbox/)
+        this.xbox = useragent.match(/Xbox/),
 
+        /**
+         * Decision: ie
+         * @name ie
+         * @memberof ua
+         * @return {Boolean}
+         */
+        this.ie = !!(useragent.indexOf('MSIE') >= 0 || useragent.indexOf('Trident') >= 0)
         ;
-
 
         /**
          * Decision: iphone5
@@ -360,6 +366,13 @@
         if (this.safari) {
             this.browser.safari = true;
             this.browser.version = this.safari[2];
+        }
+
+        if (this.ie) {
+            this.browser.ie = /(MSIE|rv:?)\s?([\d\.]+)/.exec(useragent);
+            if (!this.windowsphone) {
+                this.browser.version = (this.browser.ie) ? this.browser.ie[2] : '';
+            }
         }
 
 
