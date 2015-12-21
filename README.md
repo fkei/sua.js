@@ -48,6 +48,9 @@ Support Browser
 - [x] ua.windowsphone
 - [x] ua.safari
 - [x] ua.xbox
+- [x] ua.ie11
+- [x] ua.ie10
+- [x] ua.ie9
 - [x] ua.android.firefox
 - [x] ua.webview.twitter
 
