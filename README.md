@@ -48,11 +48,15 @@ Support Browser
 - [x] ua.windowsphone
 - [x] ua.safari
 - [x] ua.xbox
+- [x] ua.ie11 Edge
 - [x] ua.ie11
 - [x] ua.ie10
 - [x] ua.ie9
 - [x] ua.android.firefox
 - [x] ua.webview.twitter
+- [x] ua.chrome pc
+- [x] ua.firefox pc
+- [x] ua.safari pc
 
 # Build
 

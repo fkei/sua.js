@@ -13,7 +13,22 @@
      * @name ua
      * @namespace ua
      */
-    var ua = {VERSION: '0.9.8'};
+    var ua = {VERSION: '0.9.9'};
+
+    ua._resetKeys = ["ie", "webkit", "android", "android23", "android4", "android5", "ipad", "iphone", "webos", "touchpad", "kindle", "silk", "blackberry", "bb10", "rimtabletos", "playbook", "chrome", "firefox", "wii", "ds", "ps3", "psp", "psvita", "windowsphone", "safari", "trident", "xbox", "iphone5", "iphone3", "browser", "os", "mobile", "ios3", "ios4", "ios5", "ios6", "ios7", "ios8", "ios9", "edge", "webview"];
+
+    ua.reset = function () {
+        try {
+            var target = this._resetKeys;
+            for (var i = 0; i < target.length; i++) {
+                if (this[target[i]]) {
+                    delete this[target[i]];
+                }
+            }
+        } catch (e) {
+            // throw!!
+        }
+    };
 
     /**
      * UserAgent decision
@@ -30,6 +45,16 @@
         if (!useragent) {
             throw new Error('useragent setup error. useragent not found.');
         }
+
+        this.reset();
+
+        /**
+         * Decision: ie
+         * @name ie
+         * @memberof ua
+         * @return {Boolean}
+         */
+        this.ie = !!(useragent.indexOf('MSIE') >= 0 || useragent.indexOf('Trident') >= 0 || useragent.indexOf('Edge') >= 0),
 
         /**
          * Decision: webkit
@@ -221,15 +246,6 @@
         this.xbox = useragent.match(/Xbox/),
 
         /**
-         * Decision: ie
-         * @name ie
-         * @memberof ua
-         * @return {Boolean}
-         */
-        this.ie = !!(useragent.indexOf('MSIE') >= 0 || useragent.indexOf('Trident') >= 0)
-        ;
-
-        /**
          * Decision: iphone5
          * ToDo: need to check the evaluation method again after the release of iPhone5S(and later version)
          * @name iphone5
@@ -268,7 +284,7 @@
          */
         this.os = {};
 
-        if (this.webkit) {
+        if (this.webkit && !this.ie) {
             this.browser.webkit = true;
             this.browser.version = this.webkit[1];
         }
@@ -345,7 +361,7 @@
         if (!this.silk && this.os.android && useragent.match(/Kindle Fire/)) {
             this.browser.silk = true;
         }
-        if (this.chrome) {
+        if (this.chrome && !this.ie) {
             this.browser.chrome = true;
             this.browser.version = this.chrome[1];
         }
@@ -370,8 +386,25 @@
 
         if (this.ie) {
             this.browser.ie = /(MSIE|rv:?)\s?([\d\.]+)/.exec(useragent);
-            if (!this.windowsphone) {
+            this.edge = false;
+
+            if (!this.browser.ie) { // Edge
+                this.browser.ie = /(Edge\/)(\d.+)/.exec(useragent);
+                this.browser.version = this.browser.ie[2];
+                this.edge = true;
+                // reset
+                this.chrome = false;
+                this.webkit = false;
+
+            } else if (!this.windowsphone) {
                 this.browser.version = (this.browser.ie) ? this.browser.ie[2] : '';
+            }
+            console.log(this.browser.version);
+
+            if (0 < this.browser.version.indexOf('.')) {
+                this.browser.majorversion = this.browser.version.substring(0, this.browser.version.indexOf('.'));
+            } else {
+                this.browser.majorversion = this.browser.version;
             }
         }
 

@@ -211,6 +211,10 @@
       "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)",
       "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)"
     ],
+    "ie12edge": [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240", // 64bit
+        "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240", // 32bit
+    ],
     "ie11": [
       "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; Tablet PC 2.0; rv:11.0) like Gecko",
       "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko",
@@ -242,6 +246,17 @@
       "Mozilla/5.0 (iPad; CPU OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H143 Twitter for iPhone",
       "Mozilla/5.0 (Linux; Android 4.4.4; SOL26 Build/23.0.C.0.350) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 TwitterAndroid",
       "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.121 Mobile Safari/537.36 TwitterAndroid"
+    ],
+    "PCChrome": [
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36",
+    ],
+    "PCFirefox": [
+      "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:40.0) Gecko/20100101 Firefox/40.0",
+    ],
+    "PCSafari": [
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/600.7.12 (KHTML, like Gecko) Version/8.0.7 Safari/600.7.12",
     ]
   };
 
@@ -803,6 +818,7 @@
         expect(sua.browser.version).equal('7.0').be.ok
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).be.ok
+        expect(sua.browser.majorversion).equal('7').be.ok
       });
       _.each(useragents["WindowsPhone7.5"], function (useragent, idx) {
           sua.setup(useragent);
@@ -811,7 +827,7 @@
           expect(sua.browser.version).equal('7.5').be.ok
           expect(sua.os.tablet).not.be.ok
           expect(sua.os.phone).be.ok
-
+          expect(sua.browser.majorversion).equal('7').be.ok
       });
       _.each(useragents["WindowsPhone8"], function (useragent, idx) {
           sua.setup(useragent);
@@ -820,6 +836,7 @@
           expect(sua.browser.version).equal('8.0').be.ok
           expect(sua.os.tablet).not.be.ok
           expect(sua.os.phone).be.ok
+          expect(sua.browser.majorversion).equal('8').be.ok
       });
     });
 
@@ -864,6 +881,7 @@
         sua.setup(useragent);
         expect(sua.ie).be.ok;
         expect(sua.browser.version.substring(0,2)).to.eq("11").be.ok;
+        expect(sua.browser.majorversion).to.eq("11").be.ok;
       });
     });
     it('ua.ie10', function() {
@@ -871,6 +889,7 @@
         sua.setup(useragent);
         expect(sua.ie).be.ok;
         expect(sua.browser.version).to.eq("10.0").be.ok;
+        expect(sua.browser.majorversion).to.eq("10").be.ok;
       });
     });
     it('ua.ie9', function() {
@@ -878,10 +897,47 @@
         sua.setup(useragent);
         expect(sua.ie).be.ok;
         expect(sua.browser.version).to.eq("9.0").be.ok;
+        expect(sua.browser.majorversion).to.eq("9").be.ok;
       });
     });
 
-    ///
+    it('ua.ie12edge', function() {
+      _.each(useragents["ie12edge"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.ie).be.ok;
+        expect(sua.edge).be.ok;
+        expect(sua.browser.version).to.eq("12.10240").be.ok;
+        expect(sua.browser.majorversion).to.eq("12").be.ok;
+      });
+    });
+
+    it('ua.pc.chrome', function() {
+      _.each(useragents["PCChrome"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.webkit).be.ok;
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+      });
+    });
+
+    it('ua.pc.firefox', function() {
+      _.each(useragents["PCFirefox"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.firefox).be.ok;
+        expect(sua.browser.firefox).be.ok;
+        expect(sua.browser.version).to.eq("40.0").be.ok;
+      });
+    });
+
+    it('ua.pc.safari', function() {
+      _.each(useragents["PCSafari"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.safari).be.ok;
+        expect(sua.browser.safari).be.ok;
+        expect(sua.browser.version).to.eq("8.0.7").be.ok;
+      });
+
+    });
 
   });
 
