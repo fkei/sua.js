@@ -13,7 +13,7 @@
      * @name ua
      * @namespace ua
      */
-    var ua = {VERSION: '1.0.0'};
+    var ua = {VERSION: '1.0.1'};
 
     ua._resetKeys = ["ie", "webkit", "android", "android23", "android4", "android5", "ipad", "iphone", "webos", "touchpad", "kindle", "silk", "blackberry", "bb10", "rimtabletos", "playbook", "chrome", "firefox", "wii", "ds", "ps3", "psp", "psvita", "windowsphone", "safari", "trident", "xbox", "iphone5", "iphone3", "browser", "os", "mobile", "ios3", "ios4", "ios5", "ios6", "ios7", "ios8", "ios9", "edge", "webview"];
 
@@ -85,12 +85,19 @@
          */
         this.android4 = useragent.match(/(Android)\s+(4)([\d.]+)/),
         /**
-         * Decision: android4.x
+         * Decision: android5.x
          * @name android
          * @memberof ua
          * @return {Array}
          */
         this.android5 = useragent.match(/(Android)\s+(5)([\d.]+)/),
+        /**
+         * Decision: android6.x
+         * @name android
+         * @memberof ua
+         * @return {Array}
+         */
+        this.android6 = useragent.match(/(Android)\s+(6)([\d.]+)/),
         /**
          * Decision: ipad
          * @name ipad

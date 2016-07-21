@@ -82,6 +82,29 @@
       'Mozilla/5.0 (Linux; Android 5.1; Nexus 7 Build/LMY47D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.111 Safari/537.36',
       'Mozilla/5.0 (Linux; Android 5.1; Nexus 7 Build/LMY47O) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.111 Safari/537.36',
     ],
+    "Android6.0": [
+      'Mozilla/5.0 (Linux; Android 6.0.1; 404SC Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; F-02H Build/V15R049A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; HTV32 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5 Build/MMB29Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5 Build/MOB30M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MHC19Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MTC19V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6 Build/MMB29X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6 Build/MOB30I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6 Build/MOB30M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MTC19V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 7 Build/MMB29O) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 7 Build/MOB30P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 9 Build/MMB29S) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 9 Build/MOB30P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; SC-02H Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; SC-05G Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; SCV33 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; SGP612 Build/23.5.A.0.570) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; SOV33 Build/35.0.D.0.326) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+      'Mozilla/5.0 (Linux; Android 6.0.1; STV100-3 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
+    ],
     "IOS4": [
       'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; ja-jp) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A306 Safari/6531.22.7',
       'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_2 like Mac OS X; ja-jp) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A400 Safari/6531.22.7',
@@ -390,6 +413,25 @@
         expect(sua.os.version).be.ok;
       });
     });
+    it('ua.Android 6.0', function() {
+      _.each(useragents["Android6.0"], function (useragent, idx) {
+        sua.setup(useragent);
+        expect(sua.android).be.ok;
+        expect(sua.android23).not.be.ok;
+        expect(sua.android4).not.be.ok;
+        expect(sua.android5).not.be.ok;
+        expect(sua.android6).be.ok;
+        expect(sua.webkit).be.ok;
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        if (!sua.chrome) {
+          expect(sua.browser.locale.length).equal(6).be.ok
+        }
+
+        expect(sua.os.android).be.ok;
+        expect(sua.os.version).be.ok;
+      });
+  });
     it('ua.iphone (IOS4)', function() {
       _.each(useragents["IOS4"], function (useragent, idx) {
         sua.setup(useragent);
