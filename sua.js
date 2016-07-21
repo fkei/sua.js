@@ -399,7 +399,6 @@
             } else if (!this.windowsphone) {
                 this.browser.version = (this.browser.ie) ? this.browser.ie[2] : '';
             }
-            console.log(this.browser.version);
 
             if (0 < this.browser.version.indexOf('.')) {
                 this.browser.majorversion = this.browser.version.substring(0, this.browser.version.indexOf('.'));
