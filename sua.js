@@ -13,7 +13,7 @@
      * @name ua
      * @namespace ua
      */
-    var ua = {VERSION: '0.9.9'};
+    var ua = {VERSION: '1.0.0'};
 
     ua._resetKeys = ["ie", "webkit", "android", "android23", "android4", "android5", "ipad", "iphone", "webos", "touchpad", "kindle", "silk", "blackberry", "bb10", "rimtabletos", "playbook", "chrome", "firefox", "wii", "ds", "ps3", "psp", "psvita", "windowsphone", "safari", "trident", "xbox", "iphone5", "iphone3", "browser", "os", "mobile", "ios3", "ios4", "ios5", "ios6", "ios7", "ios8", "ios9", "edge", "webview"];
 
