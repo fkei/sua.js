@@ -426,7 +426,7 @@
         }
     }
 
-    SUA.VERSION = '1.0.1';
+    SUA.VERSION = '1.1.0';
 
     if (typeof module !== 'undefined' && module.exports) {
       // node
