@@ -104,8 +104,8 @@ Terminal : $ make test
 # file size
 
 ```
-sua.js (size: 10721 byte) optimize none
-sua.min.js (size: 3559 byte) optimize uglify2
+sua.js (size: 12,935 byte) optimize none
+sua.min.js (size: 4,497 byte) optimize uglify2
 ```
 
 ## LICENSE
