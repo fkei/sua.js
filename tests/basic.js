@@ -5,7 +5,7 @@
     _ = require("../node_modules/underscore/underscore.js");
     chai = require('chai');
     expect = chai.expect;
-    sua = require("../sua.js");
+    SUA = require("../sua.js");
     nodejs = true;
     console.log("mode: node.js");
   }
@@ -286,19 +286,19 @@
 
   describe('basic test', function() {
 
-    it('Exist window.sua', function() {
-      expect(sua).to.be.an('object');
+    it('Exist window.SUA', function() {
+      expect(SUA).to.be.an('function');
     });
 
     it('setup', function() {
       if (!nodejs) {
-        sua.setup()
+        var sua = new SUA();
         expect(sua.browser.version).to.be.an('string');
       }
     });
 
     it('setup parameter', function() {
-      sua.setup('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25')
+      var sua = new SUA('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25');
       expect(sua.iphone[0]).to.be.an("string");
       expect(sua.iphone[0]).to.equal("iPhone OS 6_0");
       console.log(sua);
@@ -306,7 +306,7 @@
 
     it('ua.Android 2.1', function() {
       _.each(useragents["Android2.1"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
@@ -319,7 +319,7 @@
     });
     it('ua.Android 2.2', function() {
       _.each(useragents["Android2.2"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
@@ -332,7 +332,7 @@
     });
     it('ua.Android 2.3', function() {
       _.each(useragents["Android2.3"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.android23).be.ok;
         expect(sua.android4).not.be.ok;
@@ -347,7 +347,7 @@
     });
     it('ua.Android 3.x', function() {
       _.each(useragents["Android3.x"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
@@ -362,7 +362,7 @@
     });
     it('ua.Android 4.x', function() {
       _.each(useragents["Android4.x"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.android23).not.be.ok;
         expect(sua.android4).be.ok;
@@ -379,7 +379,7 @@
     });
     it('ua.Android 5.0', function() {
       _.each(useragents["Android5.0"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
@@ -397,7 +397,7 @@
     });
     it('ua.Android 5.1', function() {
       _.each(useragents["Android5.1"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
@@ -415,7 +415,7 @@
     });
     it('ua.Android 6.0', function() {
       _.each(useragents["Android6.0"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
@@ -434,7 +434,7 @@
   });
     it('ua.iphone (IOS4)', function() {
       _.each(useragents["IOS4"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
 
@@ -456,7 +456,7 @@
     });
     it('ua.iphone (IOS5)', function() {
       _.each(useragents["IOS5"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
 
@@ -478,7 +478,7 @@
     });
     it('ua.iphone (IOS6)', function() {
       _.each(useragents["IOS6"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
 
@@ -500,7 +500,7 @@
     });
     it('ua.iphone (IOS7)', function() {
       _.each(useragents["IOS7"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
 
@@ -522,7 +522,7 @@
     });
     it('ua.iphone (IOS8)', function() {
       _.each(useragents["IOS8"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
 
@@ -544,7 +544,7 @@
     });
     it('ua.iphone (IOS9)', function() {
       _.each(useragents["IOS9"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
 
@@ -566,7 +566,7 @@
     });
     it('ua.iphone (IOS4-ipad)', function() {
       _.each(useragents["IOS4-ipad"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
         expect(sua.webkit).be.ok;
 
@@ -589,7 +589,7 @@
     });
     it('ua.iphone (IOS5-ipad)', function() {
       _.each(useragents["IOS5-ipad"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
@@ -610,7 +610,7 @@
     });
     it('ua.iphone (IOS6-ipad)', function() {
       _.each(useragents["IOS6-ipad"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -631,7 +631,7 @@
     });
     it('ua.iphone (IOS7-ipad)', function() {
       _.each(useragents["IOS7-ipad"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -652,7 +652,7 @@
     });
     it('ua.iphone (IOS8-ipad)', function() {
       _.each(useragents["IOS8-ipad"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -673,7 +673,7 @@
     });
     it('ua.iphone (IOS9-ipad)', function() {
       _.each(useragents["IOS9-ipad"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -694,7 +694,7 @@
     });
     it('ua.iphone5 (hardware)', function() {
       _.each(useragents["IOS6"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.iphone5).be.a('boolean');
 
@@ -711,7 +711,7 @@
     });
     it('ua.blackberry', function() {
       _.each(useragents["BlackBerry"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.os.blackberry).be.ok;
         expect(sua.os.tablet).not.be.ok;
         expect(sua.os.phone).be.ok;
@@ -720,7 +720,7 @@
     });
     it('ua.webos', function() {
       _.each(useragents["WebOS"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
 
         expect(sua.webos).be.ok;
         expect(sua.browser.webkit).be.ok;
@@ -734,7 +734,7 @@
 
     it('ua.touchpad', function() {
       _.each(useragents["TouchPad"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
 
         expect(sua.touchpad).be.ok;
         expect(sua.browser.webkit).be.ok;
@@ -749,7 +749,7 @@
 
     it('ua.kindle', function() {
       _.each(useragents["Kindle"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.kindle).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -762,7 +762,7 @@
 
     it('ua.silk', function() {
       _.each(useragents["Silk"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.silk).be.ok;
 
         expect(sua.browser.webkit).not.be.ok;
@@ -774,7 +774,7 @@
 
     it('ua.bb10', function() {
       _.each(useragents["BB10"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.bb10).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -788,7 +788,7 @@
 
     it('ua.rimtabletos', function() {
       _.each(useragents["rimtabletos"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.rimtabletos).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -803,7 +803,7 @@
 
     it('ua.playbook', function() {
       _.each(useragents["rimtabletos"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.playbook).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -818,7 +818,7 @@
 
     it('ua.ds', function() {
       _.each(useragents["DS"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ds).be.ok;
 
         expect(sua.browser.webkit).not.be.ok
@@ -830,7 +830,7 @@
 
     it('ua.psp', function() {
       _.each(useragents["PSP"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.psp).be.ok;
 
         expect(sua.browser.webkit).not.be.ok
@@ -841,7 +841,7 @@
 
     it('ua.psvita', function() {
       _.each(useragents["PSVita"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.psvita).be.ok;
 
         expect(sua.browser.webkit).be.ok
@@ -854,7 +854,7 @@
 
     it('ua.windowsphone', function() {
       _.each(useragents["WindowsPhone7"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.windowsphone).be.ok;
         expect(sua.browser.windowsphone).be.ok
         expect(sua.browser.version).equal('7.0').be.ok
@@ -863,7 +863,7 @@
         expect(sua.browser.majorversion).equal('7').be.ok
       });
       _.each(useragents["WindowsPhone7.5"], function (useragent, idx) {
-          sua.setup(useragent);
+          var sua = new SUA(useragent);
           expect(sua.windowsphone).be.ok;
           expect(sua.browser.windowsphone).be.ok
           expect(sua.browser.version).equal('7.5').be.ok
@@ -872,7 +872,7 @@
           expect(sua.browser.majorversion).equal('7').be.ok
       });
       _.each(useragents["WindowsPhone8"], function (useragent, idx) {
-          sua.setup(useragent);
+          var sua = new SUA(useragent);
           expect(sua.windowsphone).be.ok;
           expect(sua.browser.windowsphone).be.ok
           expect(sua.browser.version).equal('8.0').be.ok
@@ -884,7 +884,7 @@
 
     it('ua.safari', function() {
       _.each(useragents["Safari"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.safari).be.ok;
         expect(sua.browser.safari).be.ok
         expect(sua.browser.version).be.ok
@@ -895,7 +895,7 @@
 
     it('ua.xbox', function() {
       _.each(useragents["Xbox"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.xbox).be.ok;
         expect(sua.browser.trident).be.ok;
         expect(sua.browser.version).be.ok;
@@ -904,7 +904,7 @@
 
     it('ua.android.firefox', function() {
       _.each(useragents["AndroidFirefox"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.browser.firefox).be.ok;
         expect(sua.firefox).be.ok;
@@ -913,14 +913,14 @@
 
     it('ua.webview.twitter', function() {
       _.each(useragents["TwitterWebView"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.webview.twitter).be.ok;
       });
     });
 
     it('ua.ie11', function() {
       _.each(useragents["ie11"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
         expect(sua.browser.version.substring(0,2)).to.eq("11").be.ok;
         expect(sua.browser.majorversion).to.eq("11").be.ok;
@@ -928,7 +928,7 @@
     });
     it('ua.ie10', function() {
       _.each(useragents["ie10"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
         expect(sua.browser.version).to.eq("10.0").be.ok;
         expect(sua.browser.majorversion).to.eq("10").be.ok;
@@ -936,7 +936,7 @@
     });
     it('ua.ie9', function() {
       _.each(useragents["ie9"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
         expect(sua.browser.version).to.eq("9.0").be.ok;
         expect(sua.browser.majorversion).to.eq("9").be.ok;
@@ -945,7 +945,7 @@
 
     it('ua.ie12edge', function() {
       _.each(useragents["ie12edge"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
         expect(sua.edge).be.ok;
         expect(sua.browser.version).to.eq("12.10240").be.ok;
@@ -955,7 +955,7 @@
 
     it('ua.pc.chrome', function() {
       _.each(useragents["PCChrome"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -964,7 +964,7 @@
 
     it('ua.pc.firefox', function() {
       _.each(useragents["PCFirefox"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.firefox).be.ok;
         expect(sua.browser.firefox).be.ok;
         expect(sua.browser.version).to.eq("40.0").be.ok;
@@ -973,7 +973,7 @@
 
     it('ua.pc.safari', function() {
       _.each(useragents["PCSafari"], function (useragent, idx) {
-        sua.setup(useragent);
+        var sua = new SUA(useragent);
         expect(sua.safari).be.ok;
         expect(sua.browser.safari).be.ok;
         expect(sua.browser.version).to.eq("8.0.7").be.ok;

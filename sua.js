@@ -10,34 +10,12 @@
     'use strict';
 
     /**
-     * @name ua
-     * @namespace ua
-     */
-    var ua = {VERSION: '1.0.1'};
-
-    ua._resetKeys = ["ie", "webkit", "android", "android23", "android4", "android5", "ipad", "iphone", "webos", "touchpad", "kindle", "silk", "blackberry", "bb10", "rimtabletos", "playbook", "chrome", "firefox", "wii", "ds", "ps3", "psp", "psvita", "windowsphone", "safari", "trident", "xbox", "iphone5", "iphone3", "browser", "os", "mobile", "ios3", "ios4", "ios5", "ios6", "ios7", "ios8", "ios9", "edge", "webview"];
-
-    ua.reset = function () {
-        try {
-            var target = this._resetKeys;
-            for (var i = 0; i < target.length; i++) {
-                if (this[target[i]]) {
-                    delete this[target[i]];
-                }
-            }
-        } catch (e) {
-            // throw!!
-        }
-    };
-
-    /**
      * UserAgent decision
      *
-     * @memberof ua
      * @method
      * @param {String} useragent user agent
      */
-    ua.setup = function (useragent) {
+    function SUA(useragent) {
         if (!useragent && global && global.navigator && global.navigator.userAgent) {
             // set browser user agent
             useragent = global.navigator.userAgent;
@@ -45,8 +23,6 @@
         if (!useragent) {
             throw new Error('useragent setup error. useragent not found.');
         }
-
-        this.reset();
 
         /**
          * Decision: ie
@@ -452,13 +428,12 @@
 
     if (typeof module !== 'undefined' && module.exports) {
       // node
-        module.exports = ua;
+        module.exports = SUA;
     }
 
-    if (!global.sua) {
+    if (!global.SUA) {
       // browser
-      global.sua = {};
-      global.sua = ua;
+      global.SUA = SUA;
     }
 
 })(this);
