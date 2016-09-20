@@ -1,6 +1,5 @@
 {
   "name": "sua.js",
-  "version": "0.9.1",
   "main": [
     "sua.js",
     "sua.min.js"
