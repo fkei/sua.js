@@ -424,7 +424,9 @@
         if (useragent.match(/Twitter/)) {
             this.webview.twitter = true;
         }
-    };
+    }
+
+    SUA.VERSION = '1.0.1';
 
     if (typeof module !== 'undefined' && module.exports) {
       // node
