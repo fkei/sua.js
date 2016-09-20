@@ -1,18 +1,20 @@
-# sua
+# sua.js
+
+[![Build Status](https://travis-ci.org/fkei/sua.js.svg?branch=master)](https://travis-ci.org/fkei/sua.js)
 
 Simple user agent detection library. (Node.js or Browser supported)
 
-# Install (NPM or Bower)
+## Install
 
-```
+```bash
 $ npm install sua.js
 or
 $ bower install sua.js
 ```
 
-# Feature
+## Feature
 
-Support Browser
+Supported Browsers
 
 - [x] ua.Android 2.1
 - [x] ua.Android 2.2
@@ -59,23 +61,9 @@ Support Browser
 - [x] ua.firefox pc
 - [x] ua.safari pc
 
-# Build
+## Usage
 
-```sh
-$ make build # output: sua.min.js
-```
-
-# test
-
-```
-Browser : $ ./spec/index.html
-
-Terminal : $ make test
-```
-
-# Use
-
-```
+```html
 <script src="sua.js" />
 
 <script>
@@ -101,13 +89,29 @@ Terminal : $ make test
 </script>
 ```
 
-# file size
+## File size
 
 ```
-sua.js (size: 12,935 byte) optimize none
-sua.min.js (size: 4,497 byte) optimize uglify2
+sua.js (size: 12,935 byte)
+sua.min.js (size: 4,497 byte) minified with uglify2
 ```
 
-## LICENSE
+## Debug
+
+### Build
+
+```sh
+$ make build # output: sua.min.js
+```
+
+### Test
+
+```
+Browser : $ ./spec/index.html
+
+Terminal : $ make test
+```
+
+## License
 
 @see : [LICENSE](https://github.com/fkei/sua.js/blob/master/LICENSE)

@@ -1,6 +1,6 @@
 /* Zepto v1.0-1-ga3cab6c - polyfill zepto detect event ajax form fx - zeptojs.com/license */
 /**
- * @name simpleua.js
+ * @name sua.js
  * @author Kei Funagayama <kei.topaz@gmail.com>
  * @overview UserAgent decision for browser. fork zepto.js(http://zeptojs.com/)
  * @license MIT
