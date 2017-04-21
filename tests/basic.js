@@ -104,6 +104,22 @@
       'Mozilla/5.0 (Linux; Android 6.0.1; SOV33 Build/35.0.D.0.326) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
       'Mozilla/5.0 (Linux; Android 6.0.1; STV100-3 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537.36',
     ],
+    "Android7.0": [
+      "Mozilla/5.0 (Linux; Android 7.0; KYV40 Build/XXXX) AppleWebkit/537.36 (KHTML,like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.0; KYV40 Build/XXXX.; wv) AppleWebkit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/54.0.2840.85 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.0; 507SH Build/S1005) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.0; Nexus 5X Build/N5D91L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.0; Nexus 5X Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.0; Nexus 6 Build/NBD90Z) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.0; Nexus 6P Build/NBD91K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.0; Nexus 9 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Safari/537.36",
+    ],
+    "Android7.1": [
+      "Mozilla/5.0 (Linux; Android 7.1.1; Nexus 5X Build/N4F26I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.1.1; Nexus 6P Build/N4F26I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.1.1; Nexus 6P Build/N4F26J) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 7.1.1; Nexus 9 Build/N4F26M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Safari/537.36",
+    ],
     "IOS4": [
       'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_1 like Mac OS X; ja-jp) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A306 Safari/6531.22.7',
       'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0_2 like Mac OS X; ja-jp) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A400 Safari/6531.22.7',
@@ -234,8 +250,8 @@
       "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)"
     ],
     "ie12edge": [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240", // 64bit
-        "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240", // 32bit
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240", // 64bit
+      "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10240", // 32bit
     ],
     "ie11": [
       "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; Tablet PC 2.0; rv:11.0) like Gecko",
@@ -283,27 +299,27 @@
   };
 
 
-  describe('basic test', function() {
+  describe('basic test', function () {
 
-    it('Exist window.SUA', function() {
+    it('Exist window.SUA', function () {
       expect(SUA).to.be.an('function');
     });
 
-    it('setup', function() {
+    it('setup', function () {
       if (!nodejs) {
         var sua = new SUA();
         expect(sua.browser.version).to.be.an('string');
       }
     });
 
-    it('setup parameter', function() {
+    it('setup parameter', function () {
       var sua = new SUA('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25');
       expect(sua.iphone[0]).to.be.an("string");
       expect(sua.iphone[0]).to.equal("iPhone OS 6_0");
       console.log(sua);
     });
 
-    it('ua.Android 2.1', function() {
+    it('ua.Android 2.1', function () {
       useragents["Android2.1"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -316,7 +332,7 @@
         expect(sua.os.version).be.ok;
       });
     });
-    it('ua.Android 2.2', function() {
+    it('ua.Android 2.2', function () {
       useragents["Android2.2"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -329,7 +345,7 @@
         expect(sua.os.version).be.ok;
       });
     });
-    it('ua.Android 2.3', function() {
+    it('ua.Android 2.3', function () {
       useragents["Android2.3"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -344,7 +360,7 @@
         expect(sua.os.version).be.ok;
       });
     });
-    it('ua.Android 3.x', function() {
+    it('ua.Android 3.x', function () {
       useragents["Android3.x"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -352,14 +368,14 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         if (!sua.chrome) {
-            expect(sua.browser.locale.length).equal(5).be.ok
+          expect(sua.browser.locale.length).equal(5).be.ok
         }
 
         expect(sua.os.android).be.ok;
         expect(sua.os.version).be.ok;
       });
     });
-    it('ua.Android 4.x', function() {
+    it('ua.Android 4.x', function () {
       useragents["Android4.x"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -369,14 +385,14 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         if (!sua.chrome) {
-            expect(sua.browser.locale.length).equal(5).be.ok
+          expect(sua.browser.locale.length).equal(5).be.ok
         }
 
         expect(sua.os.android).be.ok;
         expect(sua.os.version).be.ok;
       });
     });
-    it('ua.Android 5.0', function() {
+    it('ua.Android 5.0', function () {
       useragents["Android5.0"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -387,14 +403,14 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         if (!sua.chrome) {
-            expect(sua.browser.locale.length).equal(5).be.ok
+          expect(sua.browser.locale.length).equal(5).be.ok
         }
 
         expect(sua.os.android).be.ok;
         expect(sua.os.version).be.ok;
       });
     });
-    it('ua.Android 5.1', function() {
+    it('ua.Android 5.1', function () {
       useragents["Android5.1"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -405,14 +421,14 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         if (!sua.chrome) {
-            expect(sua.browser.locale.length).equal(5).be.ok
+          expect(sua.browser.locale.length).equal(5).be.ok
         }
 
         expect(sua.os.android).be.ok;
         expect(sua.os.version).be.ok;
       });
     });
-    it('ua.Android 6.0', function() {
+    it('ua.Android 6.0', function () {
       useragents["Android6.0"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -430,8 +446,48 @@
         expect(sua.os.android).be.ok;
         expect(sua.os.version).be.ok;
       });
-  });
-    it('ua.iphone (IOS4)', function() {
+    });
+    it('ua.Android 7.0', function () {
+      useragents["Android7.0"].forEach(function (useragent, idx) {
+        var sua = new SUA(useragent);
+        expect(sua.android).be.ok;
+        expect(sua.android23).not.be.ok;
+        expect(sua.android4).not.be.ok;
+        expect(sua.android5).not.be.ok;
+        expect(sua.android6).not.be.ok;
+        expect(sua.android7).be.ok;
+        expect(sua.webkit).be.ok;
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        if (!sua.chrome) {
+          expect(sua.browser.locale.length).equal(7).be.ok
+        }
+
+        expect(sua.os.android).be.ok;
+        expect(sua.os.version).be.ok;
+      });
+    });
+    it('ua.Android 7.1', function () {
+      useragents["Android7.1"].forEach(function (useragent, idx) {
+        var sua = new SUA(useragent);
+        expect(sua.android).be.ok;
+        expect(sua.android23).not.be.ok;
+        expect(sua.android4).not.be.ok;
+        expect(sua.android5).not.be.ok;
+        expect(sua.android6).not.be.ok;
+        expect(sua.android7).be.ok;
+        expect(sua.webkit).be.ok;
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        if (!sua.chrome) {
+          expect(sua.browser.locale.length).equal(7).be.ok
+        }
+
+        expect(sua.os.android).be.ok;
+        expect(sua.os.version).be.ok;
+      });
+    });
+    it('ua.iphone (IOS4)', function () {
       useragents["IOS4"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
@@ -453,7 +509,7 @@
         }
       });
     });
-    it('ua.iphone (IOS5)', function() {
+    it('ua.iphone (IOS5)', function () {
       useragents["IOS5"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
@@ -475,7 +531,7 @@
         }
       });
     });
-    it('ua.iphone (IOS6)', function() {
+    it('ua.iphone (IOS6)', function () {
       useragents["IOS6"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
@@ -497,7 +553,7 @@
         }
       });
     });
-    it('ua.iphone (IOS7)', function() {
+    it('ua.iphone (IOS7)', function () {
       useragents["IOS7"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
@@ -519,7 +575,7 @@
         }
       });
     });
-    it('ua.iphone (IOS8)', function() {
+    it('ua.iphone (IOS8)', function () {
       useragents["IOS8"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
@@ -541,7 +597,7 @@
         }
       });
     });
-    it('ua.iphone (IOS9)', function() {
+    it('ua.iphone (IOS9)', function () {
       useragents["IOS9"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
@@ -563,7 +619,7 @@
         }
       });
     });
-    it('ua.iphone (IOS4-ipad)', function() {
+    it('ua.iphone (IOS4-ipad)', function () {
       useragents["IOS4-ipad"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
@@ -586,7 +642,7 @@
 
       });
     });
-    it('ua.iphone (IOS5-ipad)', function() {
+    it('ua.iphone (IOS5-ipad)', function () {
       useragents["IOS5-ipad"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
@@ -607,7 +663,7 @@
         }
       });
     });
-    it('ua.iphone (IOS6-ipad)', function() {
+    it('ua.iphone (IOS6-ipad)', function () {
       useragents["IOS6-ipad"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
@@ -628,7 +684,7 @@
         }
       });
     });
-    it('ua.iphone (IOS7-ipad)', function() {
+    it('ua.iphone (IOS7-ipad)', function () {
       useragents["IOS7-ipad"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
@@ -649,7 +705,7 @@
         }
       });
     });
-    it('ua.iphone (IOS8-ipad)', function() {
+    it('ua.iphone (IOS8-ipad)', function () {
       useragents["IOS8-ipad"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
@@ -670,7 +726,7 @@
         }
       });
     });
-    it('ua.iphone (IOS9-ipad)', function() {
+    it('ua.iphone (IOS9-ipad)', function () {
       useragents["IOS9-ipad"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
@@ -691,7 +747,7 @@
         }
       });
     });
-    it('ua.iphone5 (hardware)', function() {
+    it('ua.iphone5 (hardware)', function () {
       useragents["IOS6"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
@@ -708,7 +764,7 @@
         expect(sua.os.phone).be.ok;
       });
     });
-    it('ua.blackberry', function() {
+    it('ua.blackberry', function () {
       useragents["BlackBerry"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.os.blackberry).be.ok;
@@ -717,7 +773,7 @@
         expect(sua.blackberry).be.ok;
       });
     });
-    it('ua.webos', function() {
+    it('ua.webos', function () {
       useragents["WebOS"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
 
@@ -731,7 +787,7 @@
       });
     });
 
-    it('ua.touchpad', function() {
+    it('ua.touchpad', function () {
       useragents["TouchPad"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
 
@@ -746,7 +802,7 @@
       });
     });
 
-    it('ua.kindle', function() {
+    it('ua.kindle', function () {
       useragents["Kindle"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.kindle).be.ok;
@@ -759,7 +815,7 @@
       });
     });
 
-    it('ua.silk', function() {
+    it('ua.silk', function () {
       useragents["Silk"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.silk).be.ok;
@@ -771,7 +827,7 @@
       });
     });
 
-    it('ua.bb10', function() {
+    it('ua.bb10', function () {
       useragents["BB10"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.bb10).be.ok;
@@ -785,7 +841,7 @@
       });
     });
 
-    it('ua.rimtabletos', function() {
+    it('ua.rimtabletos', function () {
       useragents["rimtabletos"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.rimtabletos).be.ok;
@@ -800,7 +856,7 @@
       });
     });
 
-    it('ua.playbook', function() {
+    it('ua.playbook', function () {
       useragents["rimtabletos"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.playbook).be.ok;
@@ -815,7 +871,7 @@
       });
     });
 
-    it('ua.ds', function() {
+    it('ua.ds', function () {
       useragents["DS"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ds).be.ok;
@@ -827,7 +883,7 @@
       });
     });
 
-    it('ua.psp', function() {
+    it('ua.psp', function () {
       useragents["PSP"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.psp).be.ok;
@@ -838,7 +894,7 @@
       });
     });
 
-    it('ua.psvita', function() {
+    it('ua.psvita', function () {
       useragents["PSVita"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.psvita).be.ok;
@@ -851,7 +907,7 @@
       });
     });
 
-    it('ua.windowsphone', function() {
+    it('ua.windowsphone', function () {
       useragents["WindowsPhone7"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.windowsphone).be.ok;
@@ -862,26 +918,26 @@
         expect(sua.browser.majorversion).equal('7').be.ok
       });
       useragents["WindowsPhone7.5"].forEach(function (useragent, idx) {
-          var sua = new SUA(useragent);
-          expect(sua.windowsphone).be.ok;
-          expect(sua.browser.windowsphone).be.ok
-          expect(sua.browser.version).equal('7.5').be.ok
-          expect(sua.os.tablet).not.be.ok
-          expect(sua.os.phone).be.ok
-          expect(sua.browser.majorversion).equal('7').be.ok
+        var sua = new SUA(useragent);
+        expect(sua.windowsphone).be.ok;
+        expect(sua.browser.windowsphone).be.ok
+        expect(sua.browser.version).equal('7.5').be.ok
+        expect(sua.os.tablet).not.be.ok
+        expect(sua.os.phone).be.ok
+        expect(sua.browser.majorversion).equal('7').be.ok
       });
       useragents["WindowsPhone8"].forEach(function (useragent, idx) {
-          var sua = new SUA(useragent);
-          expect(sua.windowsphone).be.ok;
-          expect(sua.browser.windowsphone).be.ok
-          expect(sua.browser.version).equal('8.0').be.ok
-          expect(sua.os.tablet).not.be.ok
-          expect(sua.os.phone).be.ok
-          expect(sua.browser.majorversion).equal('8').be.ok
+        var sua = new SUA(useragent);
+        expect(sua.windowsphone).be.ok;
+        expect(sua.browser.windowsphone).be.ok
+        expect(sua.browser.version).equal('8.0').be.ok
+        expect(sua.os.tablet).not.be.ok
+        expect(sua.os.phone).be.ok
+        expect(sua.browser.majorversion).equal('8').be.ok
       });
     });
 
-    it('ua.safari', function() {
+    it('ua.safari', function () {
       useragents["Safari"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.safari).be.ok;
@@ -892,7 +948,7 @@
       });
     });
 
-    it('ua.xbox', function() {
+    it('ua.xbox', function () {
       useragents["Xbox"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.xbox).be.ok;
@@ -901,7 +957,7 @@
       });
     });
 
-    it('ua.android.firefox', function() {
+    it('ua.android.firefox', function () {
       useragents["AndroidFirefox"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
@@ -910,22 +966,22 @@
       });
     });
 
-    it('ua.webview.twitter', function() {
+    it('ua.webview.twitter', function () {
       useragents["TwitterWebView"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.webview.twitter).be.ok;
       });
     });
 
-    it('ua.ie11', function() {
+    it('ua.ie11', function () {
       useragents["ie11"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
-        expect(sua.browser.version.substring(0,2)).to.eq("11").be.ok;
+        expect(sua.browser.version.substring(0, 2)).to.eq("11").be.ok;
         expect(sua.browser.majorversion).to.eq("11").be.ok;
       });
     });
-    it('ua.ie10', function() {
+    it('ua.ie10', function () {
       useragents["ie10"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
@@ -933,7 +989,7 @@
         expect(sua.browser.majorversion).to.eq("10").be.ok;
       });
     });
-    it('ua.ie9', function() {
+    it('ua.ie9', function () {
       useragents["ie9"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
@@ -942,7 +998,7 @@
       });
     });
 
-    it('ua.ie12edge', function() {
+    it('ua.ie12edge', function () {
       useragents["ie12edge"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ie).be.ok;
@@ -952,7 +1008,7 @@
       });
     });
 
-    it('ua.pc.chrome', function() {
+    it('ua.pc.chrome', function () {
       useragents["PCChrome"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.webkit).be.ok;
@@ -961,7 +1017,7 @@
       });
     });
 
-    it('ua.pc.firefox', function() {
+    it('ua.pc.firefox', function () {
       useragents["PCFirefox"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.firefox).be.ok;
@@ -970,7 +1026,7 @@
       });
     });
 
-    it('ua.pc.safari', function() {
+    it('ua.pc.safari', function () {
       useragents["PCSafari"].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.safari).be.ok;

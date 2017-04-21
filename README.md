@@ -24,6 +24,8 @@ Supported Browsers
 - [x] ua.Android 5.0
 - [x] ua.Android 5.1
 - [x] ua.Android 6.x
+- [x] ua.Android 7.0
+- [x] ua.Android 7.1
 - [x] ua.iphone (IOS4)
 - [x] ua.iphone (IOS5)
 - [x] ua.iphone (IOS6)
