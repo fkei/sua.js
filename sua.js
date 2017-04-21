@@ -242,7 +242,17 @@
        * @memberof ua
        * @return {boolean}
        */
-      this.iphone5 = !(typeof module !== 'undefined' && module.exports) && this.iphone && screen && screen.width === 320 && screen.height === 568;
+      this.iphone5 = !(typeof module !== 'undefined' && module.exports) && this.iphone && screen && screen.width === 320 && screen.height === 568,
+
+      /**
+       * Decision: Vivaldi
+       * @name vivaldi
+       * @memberof ua
+       * @return {Array}
+       */
+      this.vivaldi = useragent.match(/Vivaldi\/([\d.]+)/)
+
+    ;
 
 
     /**
@@ -397,6 +407,11 @@
       }
     }
 
+    if (this.vivaldi) {
+      this.browser.vivaldi = true;
+      this.browser.version = this.vivaldi[1];
+    }
+
 
     /**
      * Decision: table
@@ -433,7 +448,7 @@
     }
   }
 
-  SUA.VERSION = '2.0.1';
+  SUA.VERSION = '2.0.2';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node

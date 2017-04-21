@@ -62,6 +62,7 @@ Supported Browsers
 - [x] ua.chrome pc
 - [x] ua.firefox pc
 - [x] ua.safari pc
+- [x] ua.vivaldi
 
 ## Usage
 
