@@ -68,7 +68,7 @@ Supported Browsers
 
 ## Usage
 
-```html
+```
 <script src="sua.js" />
 
 <script>
