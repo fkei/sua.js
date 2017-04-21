@@ -179,12 +179,28 @@
        */
       this.wii = useragent.match(/Nintendo (Wii);/),
       /**
+       * Decision: Wii U
+       * @name wii
+       * @memberof ua
+       * @return {Array}
+       */
+      this.wiiu = useragent.match(/Nintendo (WiiU)/),
+
+      /**
        * Decision: ds
        * @name ds
        * @memberof ua
        * @return {Array}
        */
       this.ds = useragent.match(/Nintendo (DS|3DS|DSi);/),
+
+      /**
+       * Decision: Nintendo Switch
+       * @name nintendo_switch
+       * @memberof ua
+       * @return {Array}
+       */
+      this.nintendo_switch = useragent.match(/Nintendo (Switch);/),
       /**
        * Decision: ps3
        * @name ps3
@@ -372,9 +388,15 @@
         this.android = ["Android", "Android", ""];
       }
     }
-    if (this.wii || this.ds) {
+    if (this.wii || this.ds || this.wiiu || this.nintendo_switch) {
       this.os.nintendo = true;
+
+      if (this.wiiu || this.nintendo_switch) {
+        this.browser.nintendo = useragent.match(/NintendoBrowser\/([\d.]+)/);
+        this.browser.version = this.browser.nintendo[1];
+      }
     }
+
     if (this.windowsphone) {
       this.browser.windowsphone = true;
       this.browser.version = this.windowsphone[2];
@@ -412,7 +434,6 @@
       this.browser.version = this.vivaldi[1];
     }
 
-
     /**
      * Decision: table
      * @name table
@@ -448,7 +469,7 @@
     }
   }
 
-  SUA.VERSION = '2.0.2';
+  SUA.VERSION = '2.1.0';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node

@@ -308,7 +308,15 @@
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.98 Safari/537.36 Vivaldi/1.6.689.40",
       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.98 Safari/537.36 Vivaldi/1.6.689.46",
       "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.98 Safari/537.36 Vivaldi/1.6.689.46",
-    ]
+    ],
+    "WiiU": [
+      "Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.30 (KHTML, like Gecko) NX/3.0.4.2.11 NintendoBrowser/4.3.0.11224.US",
+      "Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.15 NintendoBrowser/4.1.1.9601.JP",
+    ],
+    "NintendoSwitch": [
+      "Mozilla/5.0 (Nintendo Switch; ShareApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.5.9 NintendoBrowser/5.1.0.13341",
+      "Mozilla/5.0 (Nintendo Switch; WifiWebAuthApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.5.9 NintendoBrowser/5.1.0.13341",
+    ],
   };
 
 
@@ -1054,10 +1062,38 @@
         var sua = new SUA(useragent);
         expect(sua.vivaldi).be.ok;
         expect(sua.browser.vivaldi).be.ok;
-        expect(sua.browser.version.substring(0,3)).to.eq("1.6").be.ok;
+        expect(sua.browser.version.substring(0, 3)).to.eq("1.6").be.ok;
       });
 
     });
+
+    it('ua.wiiu', function () {
+      useragents["WiiU"].forEach(function (useragent, idx) {
+        var sua = new SUA(useragent);
+        expect(sua.wiiu).be.ok;
+        expect(sua.browser.nintendo).be.ok
+        expect(sua.browser.version.substring(0, 1)).to.eq("4").be.ok;
+        expect(sua.os.tablet).not.be.ok
+        expect(sua.os.phone).not.be.ok
+        expect(sua.os.nintendo).be.ok
+      });
+
+    });
+
+    it('ua.nintendoswitch', function () {
+      useragents["NintendoSwitch"].forEach(function (useragent, idx) {
+        var sua = new SUA(useragent);
+        expect(sua.nintendo_switch).be.ok;
+        expect(sua.browser.nintendo).be.ok
+        expect(sua.browser.version.substring(0, 1)).to.eq("5").be.ok;
+        expect(sua.os.tablet).not.be.ok
+        expect(sua.os.phone).not.be.ok
+        expect(sua.os.nintendo).be.ok
+
+      });
+
+    });
+
 
   });
 

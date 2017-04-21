@@ -63,6 +63,8 @@ Supported Browsers
 - [x] ua.firefox pc
 - [x] ua.safari pc
 - [x] ua.vivaldi
+- [x] ua.wiiu (Wii U)
+- [x] ua.nintendo_switch (Nintendo Switch)
 
 ## Usage
 
