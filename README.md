@@ -1,5 +1,6 @@
 # sua.js
 
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Build Status](https://travis-ci.org/fkei/sua.js.svg?branch=master)](https://travis-ci.org/fkei/sua.js)
 [![npm version](https://badge.fury.io/js/sua.js.svg)](https://badge.fury.io/js/sua.js)
 
