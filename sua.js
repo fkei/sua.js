@@ -75,12 +75,19 @@
        */
       this.android6 = useragent.match(/(Android)\s+(6)([\d.]+)/),
       /**
-       * Decision: android6.x
+       * Decision: android7.x
        * @name android
        * @memberof ua
        * @return {Array}
        */
       this.android7 = useragent.match(/(Android)\s+(7)([\d.]+)/),
+      /**
+       * Decision: android8.x
+       * @name android
+       * @memberof ua
+       * @return {Array}
+       */
+      this.android8 = useragent.match(/(Android)\s+(8)([\d.]+)/),
       /**
        * Decision: ipad
        * @name ipad
@@ -334,9 +341,9 @@
     if (this.os.ios) {
       var __ios_v_0 = null;
       if (this.os.version) {
-        __ios_v_0 = this.os.version.substring(0, 1);
+        __ios_v_0 = this.os.version.split('.')[0];
       }
-      for (var i = 3; i < 10; i++) { // IOS 3->9
+      for (var i = 3; i < 12; i++) { // IOS 3->9
         /**
          * Decision: ios 3-9
          * @name ios3-9
@@ -469,7 +476,7 @@
     }
   }
 
-  SUA.VERSION = '2.1.0';
+  SUA.VERSION = '2.2.0';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node

@@ -27,18 +27,23 @@ Supported Browsers
 - [x] ua.Android 6.x
 - [x] ua.Android 7.0
 - [x] ua.Android 7.1
+- [x] ua.Android 8.0
 - [x] ua.iphone (IOS4)
 - [x] ua.iphone (IOS5)
 - [x] ua.iphone (IOS6)
 - [x] ua.iphone (IOS7)
 - [x] ua.iphone (IOS8)
 - [x] ua.iphone (IOS9)
+- [x] ua.iphone (IOS10)
+- [x] ua.iphone (IOS11)
 - [x] ua.iphone (IOS4-ipad)
 - [x] ua.iphone (IOS5-ipad)
 - [x] ua.iphone (IOS6-ipad)
 - [x] ua.iphone (IOS7-ipad)
 - [x] ua.iphone (IOS8-ipad)
 - [x] ua.iphone (IOS9-ipad)
+- [x] ua.iphone (IOS10-ipad)
+- [x] ua.iphone (IOS11-ipad)
 - [x] ua.iphone5 (hardware)
 - [x] ua.blackberry
 - [x] ua.webos
@@ -68,6 +73,23 @@ Supported Browsers
 - [x] ua.nintendo_switch (Nintendo Switch)
 
 ## Usage
+
+#### example iOS 11
+
+```
+<script src="sua.js" />
+
+<script>
+var sua = new SUA('Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1');
+
+if (sua.ios11) {
+  // OK!!
+}
+</script>
+```
+
+#### example detail view!
+
 
 ```
 <script src="sua.js" />
