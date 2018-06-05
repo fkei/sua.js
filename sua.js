@@ -1,8 +1,7 @@
-/* Zepto v1.0-1-ga3cab6c - polyfill zepto detect event ajax form fx - zeptojs.com/license */
 /**
  * @name sua.js
  * @author Kei Funagayama <kei.topaz@gmail.com>
- * @overview UserAgent decision for browser. fork zepto.js(http://zeptojs.com/)
+ * @overview UserAgent decision for browser. fork Zepto v1.0-1-ga3cab6c - polyfill zepto detect event ajax form fx - zeptojs.com/license
  * @license MIT
  */
 
@@ -580,7 +579,7 @@
     }
   }
 
-  SUA.VERSION = '2.3.0';
+  SUA.VERSION = '2.4.0';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node

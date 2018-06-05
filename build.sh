@@ -35,16 +35,8 @@ VERSION=`node -e 'console.log(require("./sua").VERSION)'`
 
 echo
 echo "info: uglify start."
-echo "/**" > ${__min}
-echo " * @name sua.min.js" >> ${__min}
-echo " * @version ${VERSION}" >> ${__min}
-echo " * @overview Simple user agent detection library." >> ${__min}
-echo " */" >> ${__min}
-
-
-${__uglify} ${__src} -m -c unused=false >> ${__min}
+${__uglify} ${__src} --comments -m -c unused=false >> ${__min}
 [ $? -ne 0 ] && echo "error: uglify running error." && exit 1
-
 echo "info: output -> ${__min}"
 
 exit 0
