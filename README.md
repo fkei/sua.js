@@ -1,12 +1,14 @@
-# sua.js
+# ☕️ sua.js
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Build Status](https://travis-ci.org/fkei/sua.js.svg?branch=master)](https://travis-ci.org/fkei/sua.js)
 [![npm version](https://badge.fury.io/js/sua.js.svg)](https://badge.fury.io/js/sua.js)
 
-Simple user agent detection library. (Node.js or Browser supported)
+A simple User-Agent string parser.
 
-## Install
+(Node.js or Browser supported)
+
+## 🔰 Install
 
 ```bash
 $ npm install sua.js
@@ -14,7 +16,33 @@ or
 $ bower install sua.js
 ```
 
-## Feature
+## 🎬 Quick Start
+
+Browser
+
+```html
+<script src="sua.js" />
+
+<script>
+var sua = new SUA('Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1');
+
+if (!!sua.ios11) {
+  // OK!!
+}
+</script>
+```
+
+NodeJS
+
+```js
+var SUA = require('sua.js');
+var sua = new SUA('Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1');
+if (!!sua.ios11) {
+  // OK!!
+}
+```
+
+## ✨ Feature
 
 Supported Browsers
 
@@ -72,68 +100,29 @@ Supported Browsers
 - [x] ua.vivaldi
 - [x] ua.wiiu (Wii U)
 - [x] ua.nintendo_switch (Nintendo Switch)
+- [x] ua.chromecast
+- [x] ua.roku.ultra
+- [x] ua.amazon.4k
+- [x] ua.fire.tv
+- [x] ua.google.nexus.player
+- [x] ua.apple.tv
+- [x] ua.playstation.3
+- [x] ua.playstation.4
 
-## Usage
-
-#### example iOS 11
-
-```
-<script src="sua.js" />
-
-<script>
-var sua = new SUA('Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1');
-
-if (sua.ios11) {
-  // OK!!
-}
-</script>
-```
-
-#### example detail view!
-
+## 🗳 File size
 
 ```
-<script src="sua.js" />
-
-<script>
-  var sua = new SUA('Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25');
-
-  console.log(sua.browser.version);
-
-  JSON.stringify(sua.os, null, "    ");
-  > "{
-  >   "iphone": true,
-  >   "ios": true,
-  >   "version": "6.0",
-  >   "tablet": false,
-  >   "phone": true
-  > }"
-
-  JSON.stringify(sua.iphone, null, "    ")
-  > "[
-  >   "iPhone OS 6_0",
-  >   "iPhone OS",
-  >   "6_0"
-  > ]"
-</script>
+sua.js (size: 14K)
+sua.min.js (size: 5.2K) minified with uglify2
 ```
 
-## File size
-
-```
-sua.js (size: 12,935 byte)
-sua.min.js (size: 4,497 byte) minified with uglify2
-```
-
-## Debug
-
-### Build
+## 🏗 Build
 
 ```sh
 $ make build # output: sua.min.js
 ```
 
-### Test
+## 🐛 Test
 
 ```
 Browser : $ ./spec/index.html
@@ -141,6 +130,6 @@ Browser : $ ./spec/index.html
 Terminal : $ make test
 ```
 
-## License
+## 📄 License
 
 @see : [LICENSE](https://github.com/fkei/sua.js/blob/master/LICENSE)

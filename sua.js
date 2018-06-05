@@ -30,253 +30,283 @@
      * @memberof ua
      * @return {Boolean}
      */
-    this.ie = !!(useragent.indexOf('MSIE') >= 0 || useragent.indexOf('Trident') >= 0 || useragent.indexOf('Edge') >= 0),
+    this.ie = !!(useragent.indexOf('MSIE') >= 0 || useragent.indexOf('Trident') >= 0 || useragent.indexOf('Edge') >= 0);
 
-      /**
-       * Decision: webkit
-       * @name webkit
-       * @memberof ua
-       * @return {Array}
-       */
-      this.webkit = useragent.match(/(WebKit|Webkit)\/([\d.]+)/),
-      /**
-       * Decision: android
-       * @name android
-       * @memberof ua
-       * @return {Array}
-       */
-      this.android = useragent.match(/(Android)\s+([\d.]+)/),
-      /**
-       * Decision: android2.3
-       * @name android
-       * @memberof ua
-       * @return {Array}
-       */
-      this.android23 = useragent.match(/(Android)\s+(2\.3)([\d.]+)/),
-      /**
-       * Decision: android4.x
-       * @name android
-       * @memberof ua
-       * @return {Array}
-       */
-      this.android4 = useragent.match(/(Android)\s+(4)([\d.]+)/),
-      /**
-       * Decision: android5.x
-       * @name android
-       * @memberof ua
-       * @return {Array}
-       */
-      this.android5 = useragent.match(/(Android)\s+(5)([\d.]+)/),
-      /**
-       * Decision: android6.x
-       * @name android
-       * @memberof ua
-       * @return {Array}
-       */
-      this.android6 = useragent.match(/(Android)\s+(6)([\d.]+)/),
-      /**
-       * Decision: android7.x
-       * @name android
-       * @memberof ua
-       * @return {Array}
-       */
-      this.android7 = useragent.match(/(Android)\s+(7)([\d.]+)/),
-      /**
-       * Decision: android8.x
-       * @name android
-       * @memberof ua
-       * @return {Array}
-       */
-      this.android8 = useragent.match(/(Android)\s+(8)([\d.]+)/),
-      /**
-       * Decision: ipad
-       * @name ipad
-       * @memberof ua
-       * @return {Array}
-       */
-      this.ipad = useragent.match(/(iPad).*OS\s([\d_]+)/),
-      /**
-       * Decision: iphone
-       * @name iphone
-       * @memberof ua
-       * @return {Array}
-       */
-      this.iphone = !this.ipad && useragent.match(/(iPhone\sOS)\s([\d_]+)/),
+    /**
+     * Decision: webkit
+     * @name webkit
+     * @memberof ua
+     * @return {Array}
+     */
+    this.webkit = useragent.match(/(WebKit|Webkit)\/([\d.]+)/);
 
-      /**
-       * Decision: webos
-       * @name webos
-       * @memberof ua
-       * @return {Array}
-       */
-      this.webos = useragent.match(/(webOS|hpwOS)[\s\/]([\d.]+)/),
-      /**
-       * Decision: touchpad
-       * @name touchpad
-       * @memberof ua
-       * @return {Array}
-       */
-      this.touchpad = this.webos && useragent.match(/TouchPad/),
-      /**
-       * Decision: kindle
-       * @name kindle
-       * @memberof ua
-       * @return {Array}
-       */
-      //this.kindle = useragent.match(/Kindle\/([\d.]+)/),
-      this.kindle = useragent.match(/(Kindle)/),
-      /**
-       * Decision: silk
-       * @name silk
-       * @memberof ua
-       * @return {Array}
-       */
-      //this.silk = useragent.match(/Silk\/([\d._]+)/),
-      this.silk = useragent.match(/(Silk)/),
+    /**
+     * Decision: android
+     * @name android
+     * @memberof ua
+     * @return {Array}
+     */
+    this.android = useragent.match(/(Android)\s+([\d.]+)/);
 
-      /**
-       * Decision: blackberry
-       * @name blackberry
-       * @memberof ua
-       * @return {Array}
-       */
-      //this.blackberry = useragent.match(/(BlackBerry).*Version\/([\d.]+)/),
-      this.blackberry = useragent.match(/(BlackBerry).*/),
+    /**
+     * Decision: android2.3
+     * @name android
+     * @memberof ua
+     * @return {Array}
+     */
+    this.android23 = useragent.match(/(Android)\s+(2\.3)([\d.]+)/);
 
-      /**
-       * Decision: bb10
-       * @name bb10
-       * @memberof ua
-       * @return {Array}
-       */
-      this.bb10 = useragent.match(/(BB10).*Version\/([\d.]+)/),
-      /**
-       * Decision: rimtabletos
-       * @name rimtabletos
-       * @memberof ua
-       * @return {Array}
-       */
-      this.rimtabletos = useragent.match(/(RIM\sTablet\sOS)\s([\d.]+)/),
-      /**
-       * Decision: playbook
-       * @name playbook
-       * @memberof ua
-       * @return {Array}
-       */
-      this.playbook = useragent.match(/PlayBook/),
-      /**
-       * Decision: chrome
-       * @name chrome
-       * @memberof ua
-       * @return {Array}
-       */
-      this.chrome = useragent.match(/Chrome\/([\d.]+)/) || useragent.match(/CriOS\/([\d.]+)/),
-      /**
-       * Decision: firefox
-       * @name firefox
-       * @memberof ua
-       * @return {Array}
-       */
-      this.firefox = useragent.match(/Firefox\/([\d.]+)/),
-      /**
-       * Decision: wii
-       * @name wii
-       * @memberof ua
-       * @return {Array}
-       */
-      this.wii = useragent.match(/Nintendo (Wii);/),
-      /**
-       * Decision: Wii U
-       * @name wii
-       * @memberof ua
-       * @return {Array}
-       */
-      this.wiiu = useragent.match(/Nintendo (WiiU)/),
+    /**
+     * Decision: android4.x
+     * @name android
+     * @memberof ua
+     * @return {Array}
+     */
+    this.android4 = useragent.match(/(Android)\s+(4)([\d.]+)/);
 
-      /**
-       * Decision: ds
-       * @name ds
-       * @memberof ua
-       * @return {Array}
-       */
-      this.ds = useragent.match(/Nintendo (DS|3DS|DSi);/),
+    /**
+     * Decision: android5.x
+     * @name android
+     * @memberof ua
+     * @return {Array}
+     */
+    this.android5 = useragent.match(/(Android)\s+(5)([\d.]+)/);
 
-      /**
-       * Decision: Nintendo Switch
-       * @name nintendo_switch
-       * @memberof ua
-       * @return {Array}
-       */
-      this.nintendo_switch = useragent.match(/Nintendo (Switch);/),
-      /**
-       * Decision: ps3
-       * @name ps3
-       * @memberof ua
-       * @return {Array}
-       */
-      this.ps3 = useragent.match(/PLAYSTATION 3/),
-      /**
-       * Decision: psp
-       * @name psp
-       * @memberof ua
-       * @return {Array}
-       */
-      this.psp = useragent.match(/(PlayStation Portable)/),
-      /**
-       * Decision: psvita
-       * @name psvita
-       * @memberof ua
-       * @return {Array}
-       */
-      this.psvita = useragent.match(/(PlayStation Vita)/),
-      /**
-       * Decision: Windows Phone
-       * @name windowsphone
-       * @memberof ua
-       * @return {Array}
-       */
-      this.windowsphone = useragent.match(/(Windows Phone |Windows Phone OS )([\d.]+)/),
-      /**
-       * Decision: safari
-       * @name safari
-       * @memberof ua
-       * @return {Array}
-       */
-      this.safari = useragent.match(/(Version)\/([0-9\.]+).*Safari\/([0-9\.]+)/),
-      /**
-       * Decision: trident
-       * @name trident
-       * @memberof ua
-       * @return {Array}
-       */
-      this.trident = useragent.match(/Trident\/([\d\.]+)/),
-      /**
-       * Decision: xbox
-       * @name xbox
-       * @memberof ua
-       * @return {Array}
-       */
-      this.xbox = useragent.match(/Xbox/),
+    /**
+     * Decision: android6.x
+     * @name android
+     * @memberof ua
+     * @return {Array}
+     */
+    this.android6 = useragent.match(/(Android)\s+(6)([\d.]+)/);
 
-      /**
-       * Decision: iphone5
-       * ToDo: need to check the evaluation method again after the release of iPhone5S(and later version)
-       * @name iphone5
-       * @memberof ua
-       * @return {boolean}
-       */
-      this.iphone5 = !(typeof module !== 'undefined' && module.exports) && this.iphone && screen && screen.width === 320 && screen.height === 568,
+    /**
+     * Decision: android7.x
+     * @name android
+     * @memberof ua
+     * @return {Array}
+     */
+    this.android7 = useragent.match(/(Android)\s+(7)([\d.]+)/);
 
-      /**
-       * Decision: Vivaldi
-       * @name vivaldi
-       * @memberof ua
-       * @return {Array}
-       */
-      this.vivaldi = useragent.match(/Vivaldi\/([\d.]+)/)
+    /**
+     * Decision: android8.x
+     * @name android
+     * @memberof ua
+     * @return {Array}
+     */
+    this.android8 = useragent.match(/(Android)\s+(8)([\d.]+)/);
 
-    ;
+    /**
+     * Decision: ipad
+     * @name ipad
+     * @memberof ua
+     * @return {Array}
+     */
+    this.ipad = useragent.match(/(iPad).*OS\s([\d_]+)/);
 
+    /**
+     * Decision: iphone
+     * @name iphone
+     * @memberof ua
+     * @return {Array}
+     */
+    this.iphone = !this.ipad && useragent.match(/(iPhone\sOS)\s([\d_]+)/);
+
+    /**
+     * Decision: webos
+     * @name webos
+     * @memberof ua
+     * @return {Array}
+     */
+    this.webos = useragent.match(/(webOS|hpwOS)[\s\/]([\d.]+)/);
+
+    /**
+     * Decision: touchpad
+     * @name touchpad
+     * @memberof ua
+     * @return {Array}
+     */
+    this.touchpad = this.webos && useragent.match(/TouchPad/);
+
+    /**
+     * Decision: kindle
+     * @name kindle
+     * @memberof ua
+     * @return {Array}
+     */
+    //this.kindle = useragent.match(/Kindle\/([\d.]+)/),
+    this.kindle = useragent.match(/(Kindle)/);
+
+    /**
+     * Decision: silk
+     * @name silk
+     * @memberof ua
+     * @return {Array}
+     */
+    //this.silk = useragent.match(/Silk\/([\d._]+)/),
+    this.silk = useragent.match(/(Silk)/);
+
+    /**
+     * Decision: blackberry
+     * @name blackberry
+     * @memberof ua
+     * @return {Array}
+     */
+    //this.blackberry = useragent.match(/(BlackBerry).*Version\/([\d.]+)/);
+    this.blackberry = useragent.match(/(BlackBerry).*/);
+
+    /**
+     * Decision: bb10
+     * @name bb10
+     * @memberof ua
+     * @return {Array}
+     */
+    this.bb10 = useragent.match(/(BB10).*Version\/([\d.]+)/);
+
+    /**
+     * Decision: rimtabletos
+     * @name rimtabletos
+     * @memberof ua
+     * @return {Array}
+     */
+    this.rimtabletos = useragent.match(/(RIM\sTablet\sOS)\s([\d.]+)/);
+
+    /**
+     * Decision: playbook
+     * @name playbook
+     * @memberof ua
+     * @return {Array}
+     */
+    this.playbook = useragent.match(/PlayBook/);
+
+    /**
+     * Decision: chrome
+     * @name chrome
+     * @memberof ua
+     * @return {Array}
+     */
+    this.chrome = useragent.match(/Chrome\/([\d.]+)/) || useragent.match(/CriOS\/([\d.]+)/);
+
+    /**
+     * Decision: firefox
+     * @name firefox
+     * @memberof ua
+     * @return {Array}
+     */
+    this.firefox = useragent.match(/Firefox\/([\d.]+)/);
+
+    /**
+     * Decision: wii
+     * @name wii
+     * @memberof ua
+     * @return {Array}
+     */
+    this.wii = useragent.match(/Nintendo (Wii);/);
+
+    /**
+     * Decision: Wii U
+     * @name wii
+     * @memberof ua
+     * @return {Array}
+     */
+    this.wiiu = useragent.match(/Nintendo (WiiU)/);
+
+    /**
+     * Decision: ds
+     * @name ds
+     * @memberof ua
+     * @return {Array}
+     */
+    this.ds = useragent.match(/Nintendo (DS|3DS|DSi);/);
+
+    /**
+     * Decision: Nintendo Switch
+     * @name nintendo_switch
+     * @memberof ua
+     * @return {Array}
+     */
+    this.nintendo_switch = useragent.match(/Nintendo (Switch);/);
+
+    /**
+     * Decision: Play Station 3
+     * @name ps3
+     * @memberof ua
+     * @return {Array}
+     */
+    this.ps3 = useragent.match(/PLAYSTATION 3/i);
+
+    /**
+     * Decision: Play Station 4
+     * @name ps4
+     * @memberof ua
+     * @return {Array}
+     */
+    this.ps4 = useragent.match(/PLAYSTATION 4/i);
+
+    /**
+     * Decision: psp
+     * @name psp
+     * @memberof ua
+     * @return {Array}
+     */
+    this.psp = useragent.match(/(PlayStation Portable)/);
+
+    /**
+     * Decision: psvita
+     * @name psvita
+     * @memberof ua
+     * @return {Array}
+     */
+    this.psvita = useragent.match(/(PlayStation Vita)/);
+
+    /**
+     * Decision: Windows Phone
+     * @name windowsphone
+     * @memberof ua
+     * @return {Array}
+     */
+    this.windowsphone = useragent.match(/(Windows Phone |Windows Phone OS )([\d.]+)/);
+
+    /**
+     * Decision: safari
+     * @name safari
+     * @memberof ua
+     * @return {Array}
+     */
+    this.safari = useragent.match(/(Version)\/([0-9\.]+).*Safari\/([0-9\.]+)/);
+
+    /**
+     * Decision: trident
+     * @name trident
+     * @memberof ua
+     * @return {Array}
+     */
+    this.trident = useragent.match(/Trident\/([\d\.]+)/);
+
+    /**
+     * Decision: xbox
+     * @name xbox
+     * @memberof ua
+     * @return {Array}
+     */
+    this.xbox = useragent.match(/Xbox/i);
+
+    /**
+     * Decision: iphone5
+     * ToDo: need to check the evaluation method again after the release of iPhone5S(and later version)
+     * @name iphone5
+     * @memberof ua
+     * @return {boolean}
+     */
+    this.iphone5 = !(typeof module !== 'undefined' && module.exports) && this.iphone && screen && screen.width === 320 && screen.height === 568;
+
+    /**
+     * Decision: Vivaldi
+     * @name vivaldi
+     * @memberof ua
+     * @return {Array}
+     */
+    this.vivaldi = useragent.match(/Vivaldi\/([\d.]+)/);
 
     /**
      * Decision: iphone3
@@ -286,6 +316,79 @@
      */
     this.iphone3 = this.iphone && global.devicePixelRatio === 1 ? true : false;
 
+    /**
+     * Decision: Chrome Cast
+     * @name chromecast
+     * @memberof ua
+     * @return {Array}
+     */
+    this.chromecast = useragent.match(/CrKey/);
+
+    /**
+     * Decision: Roku
+     * @name roku
+     * @memberof ua
+     * @return {Array}
+     */
+    this.roku = useragent.match(/Roku([\w.]+)/);
+
+    /**
+     * Decision: Amazon Fire TV Gen 1 (AFTB)
+     * @name firetv1
+     * @memberof ua
+     * @return {Array}
+     */
+    this.firetv1 = useragent.match(/AFTB/);
+
+    /**
+     * Decision: Amazon Fire TV Gen 2 (AFTAFTSB)
+     * @name firetv2
+     * @memberof ua
+     * @return {Array}
+     */
+    this.firetv2 = useragent.match(/AFTS/);
+
+    /**
+     * Decision: Amazon Fire TV Stick Gen 1 (AFTM)
+     * @name firetvstick1
+     * @memberof ua
+     * @return {Array}
+     */
+    this.firetvstick1 = useragent.match(/AFTM/);
+
+    /**
+     * Decision: Amazon Fire TV Stick Gen 2 (AFTT)
+     * @name firetvstick2
+     * @memberof ua
+     * @return {Array}
+     */
+    this.firetvstick2 = useragent.match(/AFTT/);
+
+    /**
+     * Decision: Amazon Fire TV Series
+     * @name firetv
+     * @memberof ua
+     * @return {Array}
+     */
+    this.firetv = !!this.firetv1 || !!this.firetv2 || !!this.firetvstick1 || !!this.firetvstick2;
+
+    /**
+     * Decision: Nexus Player
+     * @name nexusplayer
+     * @memberof ua
+     * @return {Array}
+     */
+    this.nexusplayer = useragent.match(/Nexus Player/);
+
+    /**
+     * Decision: Apple TV
+     * @name appletv
+     * @memberof ua
+     * @return {Array}
+     */
+    this.appletv = useragent.match(/AppleTV/);
+
+    /////////////////////////////////////
 
     /**
      * browser information
@@ -328,6 +431,7 @@
         //console.log('Failed to parse user agent string of Android.', useragent);
       }
     }
+
     if (this.iphone) {
       this.os.ios = this.os.iphone = true;
       this.os.version = this.iphone[2].replace(/_/g, '.');
@@ -456,7 +560,7 @@
      * @return {boolean}
      */
     this.os.phone = !!(!this.os.tablet && (this.android || this.iphone || this.webos || this.blackberry || this.bb10 ||
-    (this.chrome && useragent.match(/Android/)) || (this.chrome && useragent.match(/CriOS\/([\d.]+)/)) || (this.firefox && useragent.match(/Mobile/)) || (this.windowsphone && useragent.match(/IEMobile/))));
+      (this.chrome && useragent.match(/Android/)) || (this.chrome && useragent.match(/CriOS\/([\d.]+)/)) || (this.firefox && useragent.match(/Mobile/)) || (this.windowsphone && useragent.match(/IEMobile/))));
 
     /**
      * Decision mobile (tablet or phone)
@@ -476,7 +580,7 @@
     }
   }
 
-  SUA.VERSION = '2.2.0';
+  SUA.VERSION = '2.3.0';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node

@@ -1,40 +1,34 @@
 {
-    "name": "sua.js",
-    "version": "2.2.0",
-    "description": "Simple user agent detection library.",
-    "license": "MIT",
-    "keywords": [
-        "browser"
-    ],
-    "scripts": {
-        "test": "mocha tests/*.js"
-    },
-    "homepage": "https://github.com/fkei/sua.js",
-    "bugs": {
-        "email": "kei.topaz@gmail.com",
-        "url": "https://github.com/fkei/sua.js/issues"
-    },
-    "author": {
-        "name": "Kei Funagayama",
-        "email": "kei.topaz@gmail.com",
-        "url": "https://github.com/fkei"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:fkei/sua.js.git"
-    },
-    "dependencies": {
-        "uglify-js": "*"
-    },
-    "devDependencies": {
-        "mocha": ">=1.0.1",
-        "chai": ">=1.8.0",
-        "should": ">=0.6.1",
-        "jshint": ">=0.7.0"
-    },
-    "engines": {
-        "node": ">=0.12.0",
-        "npm": ">=2.5.0"
-    },
-    "main": "./sua.js"
+  "name": "sua.js",
+  "version": "2.3.0",
+  "description": "Simple user agent detection library.",
+  "license": "MIT",
+  "keywords": [
+    "browser"
+  ],
+  "scripts": {
+    "test": "mocha --recursive tests --timeout 10000 --exit"
+  },
+  "homepage": "https://github.com/fkei/sua.js",
+  "bugs": {
+    "email": "kei.topaz@gmail.com",
+    "url": "https://github.com/fkei/sua.js/issues"
+  },
+  "author": {
+    "name": "Kei Funagayama",
+    "email": "kei.topaz@gmail.com",
+    "url": "https://github.com/fkei"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fkei/sua.js.git"
+  },
+  "main": "./sua.js",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "jshint": "^2.9.5",
+    "mocha": "^5.2.0",
+    "should": "^13.2.1",
+    "uglify-js": "^3.4.0"
+  }
 }
