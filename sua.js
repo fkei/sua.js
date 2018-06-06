@@ -600,7 +600,7 @@
     }
   }
 
-  SUA.VERSION = '2.6.0';
+  SUA.VERSION = '2.6.1';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node
