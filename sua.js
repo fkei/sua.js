@@ -406,7 +406,7 @@
      * @return {Object}
      */
     this.os = {
-      name: 'unknow'
+      name: 'unknown'
     };
 
     if (this.webkit && !this.ie) {
@@ -488,7 +488,7 @@
     }
     if (this.kindle) {
       this.os.kindle = true;
-      this.os.name = 'kindle';
+      this.os.name = 'fireos';
     }
     if (this.silk) {
       this.browser.silk = true;
@@ -546,6 +546,18 @@
       } else {
         this.browser.majorversion = this.browser.version;
       }
+    }
+
+    if (this.xbox) {
+      this.os.name = 'unknown';
+    }
+
+    if (this.firetv) {
+      this.os.name = 'fireos';
+    }
+
+    if (this.nexusplayer) {
+      this.os.name = 'nexusplayer';
     }
 
     if (this.vivaldi) {

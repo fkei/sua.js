@@ -330,10 +330,12 @@
       'Mozilla/5.0 (Android; Mobile; rv:38.0) Gecko/38.0 Firefox/38.0',
       'Mozilla/5.0 (Android; Tablet; rv:38.0) Gecko/38.0 Firefox/38.0',
     ],
-    'TwitterWebView': [
+    'TwitterWebViewIOS': [
       'Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11D167 Twitter for iPhone',
       'Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12B466 Twitter for iPhone',
       'Mozilla/5.0 (iPad; CPU OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H143 Twitter for iPhone',
+    ],
+    'TwitterWebViewAndroid': [
       'Mozilla/5.0 (Linux; Android 4.4.4; SOL26 Build/23.0.C.0.350) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 TwitterAndroid',
       'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.121 Mobile Safari/537.36 TwitterAndroid'
     ],
@@ -982,7 +984,7 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         expect(sua.os.kindle).be.ok;
-        expect(sua.os.name).equal('kindle').be.ok
+        expect(sua.os.name).equal('fireos').be.ok
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
       });
@@ -997,6 +999,7 @@
         expect(sua.browser.silk).be.ok;
         expect(sua.os.tablet).not.be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1043,6 +1046,7 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('rimtabletos').be.ok
       });
     });
 
@@ -1055,6 +1059,7 @@
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).not.be.ok
         expect(sua.os.nintendo).be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1066,6 +1071,7 @@
         expect(sua.browser.webkit).not.be.ok
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).not.be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1079,6 +1085,7 @@
         expect(sua.browser.silk).be.ok
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).not.be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1091,6 +1098,7 @@
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).be.ok
         expect(sua.browser.majorversion).equal('7').be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
       useragents['WindowsPhone7.5'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
@@ -1100,6 +1108,7 @@
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).be.ok
         expect(sua.browser.majorversion).equal('7').be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
       useragents['WindowsPhone8'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
@@ -1109,6 +1118,7 @@
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).be.ok
         expect(sua.browser.majorversion).equal('8').be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1120,6 +1130,7 @@
         expect(sua.browser.version).be.ok
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).not.be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1129,6 +1140,7 @@
         expect(sua.xbox).be.ok;
         expect(sua.browser.trident).be.ok;
         expect(sua.browser.version).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
     it('ua.xbox.edge', function () {
@@ -1137,6 +1149,7 @@
         expect(sua.xbox).be.ok;
         expect(sua.edge).be.ok;
         expect(sua.browser.version).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1146,13 +1159,22 @@
         expect(sua.android).be.ok;
         expect(sua.browser.firefox).be.ok;
         expect(sua.firefox).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
-    it('ua.webview.twitter', function () {
-      useragents['TwitterWebView'].forEach(function (useragent, idx) {
+    it('ua.webview.twitter.ios', function () {
+      useragents['TwitterWebViewIOS'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.webview.twitter).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
+      });
+    });
+    it('ua.webview.twitter.android', function () {
+      useragents['TwitterWebViewAndroid'].forEach(function (useragent, idx) {
+        var sua = new SUA(useragent);
+        expect(sua.webview.twitter).be.ok;
+        expect(sua.os.name).equal('android').be.ok
       });
     });
 
@@ -1162,6 +1184,7 @@
         expect(sua.ie).be.ok;
         expect(sua.browser.version.substring(0, 2)).to.eq('11').be.ok;
         expect(sua.browser.majorversion).to.eq('11').be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
     it('ua.ie10', function () {
@@ -1170,6 +1193,7 @@
         expect(sua.ie).be.ok;
         expect(sua.browser.version).to.eq('10.0').be.ok;
         expect(sua.browser.majorversion).to.eq('10').be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
     it('ua.ie9', function () {
@@ -1178,6 +1202,7 @@
         expect(sua.ie).be.ok;
         expect(sua.browser.version).to.eq('9.0').be.ok;
         expect(sua.browser.majorversion).to.eq('9').be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1188,6 +1213,7 @@
         expect(sua.edge).be.ok;
         expect(sua.browser.version).to.eq('12.10240').be.ok;
         expect(sua.browser.majorversion).to.eq('12').be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1197,6 +1223,7 @@
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1206,6 +1233,7 @@
         expect(sua.firefox).be.ok;
         expect(sua.browser.firefox).be.ok;
         expect(sua.browser.version).to.eq('40.0').be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
@@ -1215,6 +1243,7 @@
         expect(sua.safari).be.ok;
         expect(sua.browser.safari).be.ok;
         expect(sua.browser.version).to.eq('8.0.7').be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
 
     });
@@ -1225,6 +1254,7 @@
         expect(sua.vivaldi).be.ok;
         expect(sua.browser.vivaldi).be.ok;
         expect(sua.browser.version.substring(0, 3)).to.eq('1.6').be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
 
     });
@@ -1238,6 +1268,7 @@
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).not.be.ok
         expect(sua.os.nintendo).be.ok
+        expect(sua.os.name).equal('unknown').be.ok
       });
 
     });
@@ -1251,7 +1282,7 @@
         expect(sua.os.tablet).not.be.ok
         expect(sua.os.phone).not.be.ok
         expect(sua.os.nintendo).be.ok
-
+        expect(sua.os.name).equal('unknown').be.ok
       });
 
     });
@@ -1260,17 +1291,21 @@
       useragents['Chromecast'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.chromecast).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
     it('ua.roku.ultra', function () {
       useragents['RokuUltra'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
+        expect(sua.roku).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
     it('ua.amazon.4k.fire.tv', function () {
       useragents['Amazon4KFireTV'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.firetv).be.ok;
+        expect(sua.os.name).equal('fireos').be.ok
       });
     });
     it('ua.google.nexus.player', function () {
@@ -1278,24 +1313,28 @@
         var sua = new SUA(useragent);
         expect(sua.nexusplayer).be.ok;
         expect(sua.os.version).be.ok;
+        expect(sua.os.name).equal('nexusplayer').be.ok
       });
     });
     it('ua.apple.tv', function () {
       useragents['AppleTV'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.appletv).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
     it('ua.playstation.3', function () {
       useragents['Playstation3'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ps3).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
     it('ua.playstation.4', function () {
       useragents['Playstation4'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ps4).be.ok;
+        expect(sua.os.name).equal('unknown').be.ok
       });
     });
 
