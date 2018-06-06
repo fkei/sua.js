@@ -4,9 +4,7 @@
  * @overview UserAgent decision for browser. fork Zepto v1.0-1-ga3cab6c - polyfill zepto detect event ajax form fx - zeptojs.com/license
  * @license MIT
  */
-
 (function (global) {
-  'use strict';
 
   /**
    * UserAgent decision
@@ -453,7 +451,7 @@
          * @memberof ua
          * @return {boolean}
          */
-        this['ios' + i] = __ios_v_0 === "" + i;
+        this['ios' + i] = __ios_v_0 === '' + i;
       }
     }
 
@@ -495,7 +493,7 @@
       this.browser.firefox = true;
       this.browser.version = this.firefox[1];
       if (useragent.match(/Android/)) { // firefox on android
-        this.android = ["Android", "Android", ""];
+        this.android = ['Android', 'Android', ''];
       }
     }
     if (this.wii || this.ds || this.wiiu || this.nintendo_switch) {
@@ -579,7 +577,7 @@
     }
   }
 
-  SUA.VERSION = '2.4.0';
+  SUA.VERSION = '2.5.0';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node

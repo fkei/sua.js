@@ -1,13 +1,17 @@
 {
   "name": "sua.js",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Simple user agent detection library.",
   "license": "MIT",
   "keywords": [
     "browser"
   ],
   "scripts": {
-    "test": "mocha --recursive tests --timeout 10000 --exit"
+    "build": "npm run test && npm run setver && npm run minify",
+    "setver": "./setver",
+    "lint": "eslint sua.js",
+    "minify": "uglifyjs sua.js --comments -m -c unused=false > sua.min.js",
+    "test": "npm run lint && mocha --recursive tests --timeout 10000 --exit"
   },
   "homepage": "https://github.com/fkei/sua.js",
   "bugs": {
@@ -24,11 +28,11 @@
     "url": "git@github.com:fkei/sua.js.git"
   },
   "main": "./sua.js",
-  "dependencies": {
+  "devDependencies": {
     "chai": "^4.1.2",
-    "jshint": "^2.9.5",
     "mocha": "^5.2.0",
     "should": "^13.2.1",
-    "uglify-js": "^3.4.0"
+    "uglify-js": "^3.4.0",
+    "eslint": "^4.19.1"
   }
 }
