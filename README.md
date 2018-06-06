@@ -65,6 +65,7 @@ Supported Browsers
 - [x] ua.iphone (IOS9)
 - [x] ua.iphone (IOS10)
 - [x] ua.iphone (IOS11)
+- [x] ua.iphone (IOS12)
 - [x] ua.iphone (IOS4-ipad)
 - [x] ua.iphone (IOS5-ipad)
 - [x] ua.iphone (IOS6-ipad)
@@ -73,6 +74,7 @@ Supported Browsers
 - [x] ua.iphone (IOS9-ipad)
 - [x] ua.iphone (IOS10-ipad)
 - [x] ua.iphone (IOS11-ipad)
+- [ ] ua.iphone (IOS12-ipad)
 - [x] ua.iphone5 (hardware)
 - [x] ua.blackberry
 - [x] ua.webos
@@ -119,7 +121,7 @@ sua.min.js (size: 5.2K) minified with uglify2
 ## 🏗 Build
 
 ```sh
-$ make build # output: sua.min.js
+$ npm run build # output: sua.min.js
 ```
 
 ## 🐛 Test
@@ -127,7 +129,7 @@ $ make build # output: sua.min.js
 ```
 Browser : $ ./spec/index.html
 
-Terminal : $ make test
+Terminal : $ npm test
 ```
 
 ## 📄 License

@@ -405,7 +405,9 @@
      * @memberof ua
      * @return {Object}
      */
-    this.os = {};
+    this.os = {
+      name: 'unknow'
+    };
 
     if (this.webkit && !this.ie) {
       this.browser.webkit = true;
@@ -418,6 +420,7 @@
     }
 
     if (this.android) {
+      this.os.name = 'android';
       this.os.android = true;
       this.os.version = this.android[2];
       try {
@@ -431,11 +434,13 @@
 
     if (this.iphone) {
       this.os.ios = this.os.iphone = true;
+      this.os.name = 'ios';
       this.os.version = this.iphone[2].replace(/_/g, '.');
     }
 
     if (this.ipad) {
       this.os.ios = this.os.ipad = true;
+      this.os.name = 'ios';
       this.os.version = this.ipad[2].replace(/_/g, '.');
     }
 
@@ -444,9 +449,9 @@
       if (this.os.version) {
         __ios_v_0 = this.os.version.split('.')[0];
       }
-      for (var i = 3; i < 12; i++) { // IOS 3->9
+      for (var i = 3; i < 13; i++) {
         /**
-         * Decision: ios 3-9
+         * Decision: ios any
          * @name ios3-9
          * @memberof ua
          * @return {boolean}
@@ -457,20 +462,25 @@
 
     if (this.webos) {
       this.os.webos = true;
+      this.os.name = 'webos';
       this.os.version = this.webos[2];
     }
     if (this.touchpad) {
       this.os.touchpad = true;
+      this.os.name = 'webos';
     }
     if (this.blackberry) {
       this.os.blackberry = true;
+      this.os.name = 'blackberry';
     }
     if (this.bb10) {
       this.os.bb10 = true;
+      this.os.name = 'bb10';
       this.os.version = this.bb10[2];
     }
     if (this.rimtabletos) {
       this.os.rimtabletos = true;
+      this.os.name = 'rimtabletos';
       this.os.version = this.rimtabletos[2];
     }
     if (this.playbook) {
@@ -478,6 +488,7 @@
     }
     if (this.kindle) {
       this.os.kindle = true;
+      this.os.name = 'kindle';
     }
     if (this.silk) {
       this.browser.silk = true;
@@ -577,7 +588,7 @@
     }
   }
 
-  SUA.VERSION = '2.5.0';
+  SUA.VERSION = '2.6.0';
 
   if (typeof module !== 'undefined' && module.exports) {
     // node

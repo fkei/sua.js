@@ -11,15 +11,20 @@
 
   var iosVersionCheck = function (sua, target) {
     var min = 3;
-    var max = 11;
-    for (var i = min; i <= max; i++) { // IOS 3->9
+    var max = 12;
+    var success = false;
+    for (var i = min; i <= max; i++) {
       if (i == target) {
         expect(sua['ios' + target]).be.ok;
+        success = true;
       } else {
         expect(sua['ios' + i]).be.not.ok;
       }
     }
-  }
+    if (!success) {
+      expect.fail();
+    }
+  };
 
 
   var useragents = {
@@ -187,6 +192,9 @@
     'IOS11': [
       'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'
     ],
+    'IOS12': [
+      'Mozilla/5.0 (iPod; CPU iPhone OS 12_0 like macOS) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/12.0 Mobile/14A5335d Safari/602.1.50',
+    ],
     'IOS4-ipad': [
       'Mozilla/5.0 (iPad; U; CPU OS 4_2 like Mac OS X; zh-cn) AppleWebKit/533.17.9 (KHTML, like Gecko) Mobile/8C134',
       'Mozilla/5.0 (iPad; U; CPU OS 4_3 like Mac OS X; ja-jp) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8F190 Safari/6533.18.5',
@@ -225,6 +233,7 @@
     'IOS11-ipad': [
       'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.25 (KHTML, like Gecko) Version/11.0 Mobile/15A5304j Safari/604.1',
     ],
+    'IOS12-ipad': [], // TODO
     'BlackBerry': [
       'BlackBerry9000/4.6.0.224 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/220',
       'BlackBerry9300/5.0.0.1007 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/220',
@@ -409,6 +418,7 @@
       useragents['Android2.1'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -422,6 +432,7 @@
       useragents['Android2.2'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.webkit).be.ok;
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -435,6 +446,7 @@
       useragents['Android2.3'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).be.ok;
         expect(sua.android4).not.be.ok;
         expect(sua.webkit).be.ok;
@@ -451,6 +463,7 @@
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         if (!sua.chrome) {
@@ -465,6 +478,7 @@
       useragents['Android4.x'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).not.be.ok;
         expect(sua.android4).be.ok;
         expect(sua.webkit).be.ok;
@@ -482,6 +496,7 @@
       useragents['Android5.0'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
         expect(sua.android5).be.ok;
@@ -500,6 +515,7 @@
       useragents['Android5.1'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
         expect(sua.android5).be.ok;
@@ -518,6 +534,7 @@
       useragents['Android6.0'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
         expect(sua.android5).not.be.ok;
@@ -537,6 +554,7 @@
       useragents['Android7.0'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
         expect(sua.android5).not.be.ok;
@@ -557,6 +575,7 @@
       useragents['Android7.1'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
         expect(sua.android5).not.be.ok;
@@ -577,6 +596,7 @@
       useragents['Android8.0'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.android).be.ok;
+        expect(sua.os.name).equal('android').be.ok
         expect(sua.android23).not.be.ok;
         expect(sua.android4).not.be.ok;
         expect(sua.android5).not.be.ok;
@@ -598,6 +618,7 @@
       useragents['IOS4'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         expect(sua.webkit).be.ok;
 
         expect(sua.browser.webkit).be.ok;
@@ -615,6 +636,7 @@
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -631,6 +653,7 @@
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -647,6 +670,7 @@
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -663,6 +687,7 @@
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -679,6 +704,7 @@
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -695,6 +721,7 @@
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -711,6 +738,7 @@
         var sua = new SUA(useragent);
         expect(sua.iphone).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -722,11 +750,31 @@
         iosVersionCheck(sua, 11)
       });
     });
+
+    it('ua.iphone (IOS12)', function () {
+      useragents['IOS12'].forEach(function (useragent, idx) {
+        var sua = new SUA(useragent);
+        expect(sua.iphone).be.ok;
+        expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
+
+        expect(sua.browser.webkit).be.ok;
+        expect(sua.browser.version).be.ok;
+        expect(sua.os.iphone).be.ok;
+        expect(sua.os.ios).be.ok;
+        expect(sua.os.version).be.ok;
+        expect(sua.os.table).not.be.ok;
+        expect(sua.os.phone).be.ok;
+        iosVersionCheck(sua, 12)
+      });
+    });
+
     it('ua.iphone (IOS4-ipad)', function () {
       useragents['IOS4-ipad'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
         expect(sua.ipad).be.ok;
         expect(sua.webkit).be.ok;
+        expect(sua.os.name).equal('ios').be.ok
 
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
@@ -750,6 +798,7 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         iosVersionCheck(sua, 5)
       });
     });
@@ -765,6 +814,7 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         iosVersionCheck(sua, 6)
       });
     });
@@ -780,6 +830,7 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         iosVersionCheck(sua, 7)
       });
     });
@@ -795,6 +846,7 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         iosVersionCheck(sua, 8)
       });
     });
@@ -810,6 +862,7 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         iosVersionCheck(sua, 9)
       });
     });
@@ -825,6 +878,7 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         iosVersionCheck(sua, 10)
       });
     });
@@ -840,9 +894,27 @@
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         iosVersionCheck(sua, 11)
       });
     });
+
+    // it('ua.iphone (IOS12-ipad)', function () {
+    //   useragents['IOS12-ipad'].forEach(function (useragent, idx) {
+    //     var sua = new SUA(useragent);
+    //     expect(sua.ipad).be.ok;
+
+    //     expect(sua.browser.webkit).be.ok;
+    //     expect(sua.browser.version).be.ok;
+    //     expect(sua.os.ipad).be.ok;
+    //     expect(sua.os.ios).be.ok;
+    //     expect(sua.os.version).be.ok;
+    //     expect(sua.os.tablet).be.ok;
+    //     expect(sua.os.phone).not.be.ok;
+    //     expect(sua.os.name).equal('ios').be.ok
+    //     iosVersionCheck(sua, 12)
+    //   });
+    // });
     it('ua.iphone5 (hardware)', function () {
       useragents['IOS6'].forEach(function (useragent, idx) {
         var sua = new SUA(useragent);
@@ -857,6 +929,7 @@
         expect(sua.os.ios).be.ok;
         expect(sua.os.version).be.ok;
         expect(sua.os.table).not.be.ok;
+        expect(sua.os.name).equal('ios').be.ok
         expect(sua.os.phone).be.ok;
       });
     });
@@ -865,6 +938,7 @@
         var sua = new SUA(useragent);
         expect(sua.os.blackberry).be.ok;
         expect(sua.os.tablet).not.be.ok;
+        expect(sua.os.name).equal('blackberry').be.ok
         expect(sua.os.phone).be.ok;
         expect(sua.blackberry).be.ok;
       });
@@ -877,6 +951,7 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         expect(sua.os.webos).be.ok;
+        expect(sua.os.name).equal('webos').be.ok
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).not.be.ok;
         expect(sua.os.phone).be.ok;
@@ -891,6 +966,7 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         expect(sua.os.webos).be.ok;
+        expect(sua.os.name).equal('webos').be.ok
         expect(sua.os.version).be.ok;
         expect(sua.os.touchpad).be.ok;
         expect(sua.os.tablet).not.be.ok;
@@ -906,6 +982,7 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         expect(sua.os.kindle).be.ok;
+        expect(sua.os.name).equal('kindle').be.ok
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
       });
@@ -931,6 +1008,7 @@
         expect(sua.browser.webkit).be.ok;
         expect(sua.browser.version).be.ok;
         expect(sua.os.bb10).be.ok;
+        expect(sua.os.name).equal('bb10').be.ok
         expect(sua.os.version).be.ok;
         expect(sua.os.tablet).not.be.ok;
         expect(sua.os.phone).be.ok;
@@ -947,6 +1025,7 @@
         expect(sua.browser.playbook).be.ok;
         expect(sua.os.rimtabletos).be.ok;
         expect(sua.os.version).be.ok;
+        expect(sua.os.name).equal('rimtabletos').be.ok
         expect(sua.os.tablet).be.ok;
         expect(sua.os.phone).not.be.ok;
       });
